@@ -1,1 +1,1 @@
-[火星人](Problems/火星人.md)
+[火星人](Algorithm/Problems/火星人.md)
