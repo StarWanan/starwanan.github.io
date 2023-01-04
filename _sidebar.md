@@ -11,6 +11,14 @@
 	- [AcWing2021寒假每日一题(入门)](Algorithm/AcWing2021寒假每日一题(入门).md)
 - 人工智能
 	- [异常分割](AI/异常分割.md)
+		- [PEBAL](AI/paper/PEBAL.md)
+		- [DMLNet](AI/paper/DMLNet.md)
+		- [CosMe](AI/paper/CosMe.md)
+		- [NFlowJS](AI/paper/NFlowJS.md)
+		- [PAnS](AI/paper/PAnS.md)
+		- [SynthCP](AI/paper/SynthCP.md)
+		- [SML](AI/paper/SML.md)
+		- [Max Logits](AI/paper/Max%20Logits.md)
 	- tools
 		- [服务器使用指南](AI/其他/服务器使用指南.md)
 		- [python&pytorch使用指南](AI/其他/python&pytorch使用指南.md)
