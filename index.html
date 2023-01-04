@@ -52,30 +52,80 @@
             placeholder: '搜索',
             // 支持本地化
             placeholder: {
-                '/zh-cn/': '搜索',
+                '/zh-cn/': '🔍 搜索',
                 '/': 'Type to search'
             },
             noData: '找不到结果',
             depth: 4,
             hideOtherSidebarContent: false,
             namespace: 'Docsify-Guide',
-        }
+        } // 添加搜索框
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+
+  <!-- 数学公式插件 -->
+  <!-- CDN files for docsify-katex -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+  <!-- or <script src="//cdn.jsdelivr.net/gh/upupming/docsify-katex@latest/dist/docsify-katex.js"></script> -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+
   <!-- 代码高亮 -->
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
-  <!-- emoji表情支持 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
-  <!-- 图片放大缩小支持 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-  <!-- 搜索功能支持 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+
   <!--在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码-->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  
+  <!-- emoji表情支持 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  
+  <!-- 图片放大缩小支持 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  
+  <!-- 搜索功能支持 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+
+  <!-- 分页导航插件 -->
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+
+  <!-- 字数统计 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  
+  <!-- 访问量统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <!--Live-2D看板娘模型 -->
+  <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+  <!--Live-2D看板娘模型 -->
+  <script type="text/javascript">
+    //Live-2D看板娘模型
+    L2Dwidget.init({
+        model: {
+            //jsonpath控制显示那个小萝莉模型，下面这个就是我觉得最可爱的小萝莉模型 //hijiki  //izumi //shizuku //koharu
+            jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json", //这里改模型，前面后面都要改
+            scale: 1,
+        },
+        display: {
+            position: "right", //设置看板娘的上下左右位置
+            width: 60,  //小萝莉的宽度
+            height: 100, //小萝莉的高度
+            hOffset: 10,  //水平偏移
+            vOffset: -20  //垂直偏移
+        },
+        mobile: {
+            show: false,  //在移动端不显示
+            scale: 0.4    //移动设备上的缩放
+        },
+        react: {
+            opacityDefault: 0.9, //设置透明度
+            opacityOnHover: 0.2
+        },
+    });
+  </script>
+  
 </body>
 </html>
