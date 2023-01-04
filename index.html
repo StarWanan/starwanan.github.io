@@ -98,33 +98,51 @@
   <!-- 访问量统计 -->
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
+  <!-- Gitalk，一个现代化的，基于Preact和Github Issue的评论系统 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    const gitalk = new Gitalk({
+      clientID: 'Github Application Client ID',
+      clientSecret: 'Github Application Client Secret',
+      repo: 'Github repo',
+      owner: 'Github repo owner',
+      admin: ['Github repo collaborators, only these guys can initialize github issues'],
+      // facebook-like distraction free mode
+      distractionFreeMode: false
+    })
+  </script>
+
   <!--Live-2D看板娘模型 -->
-  <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+  <!-- <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script> -->
   <!--Live-2D看板娘模型 -->
   <script type="text/javascript">
     //Live-2D看板娘模型
-    L2Dwidget.init({
-        model: {
-            //jsonpath控制显示那个小萝莉模型，下面这个就是我觉得最可爱的小萝莉模型 //hijiki  //izumi //shizuku //koharu
-            jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json", //这里改模型，前面后面都要改
-            scale: 1,
-        },
-        display: {
-            position: "right", //设置看板娘的上下左右位置
-            width: 60,  //小萝莉的宽度
-            height: 100, //小萝莉的高度
-            hOffset: 10,  //水平偏移
-            vOffset: -20  //垂直偏移
-        },
-        mobile: {
-            show: false,  //在移动端不显示
-            scale: 0.4    //移动设备上的缩放
-        },
-        react: {
-            opacityDefault: 0.9, //设置透明度
-            opacityOnHover: 0.2
-        },
-    });
+    // L2Dwidget.init({
+    //     model: {
+    //         //jsonpath控制显示那个小萝莉模型，下面这个就是我觉得最可爱的小萝莉模型 //hijiki  //izumi //shizuku //koharu
+    //         jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json", //这里改模型，前面后面都要改
+    //         scale: 1,
+    //     },
+    //     display: {
+    //         position: "right", //设置看板娘的上下左右位置
+    //         width: 60,  //小萝莉的宽度
+    //         height: 100, //小萝莉的高度
+    //         hOffset: 10,  //水平偏移
+    //         vOffset: -20  //垂直偏移
+    //     },
+    //     mobile: {
+    //         show: false,  //在移动端不显示
+    //         scale: 0.4    //移动设备上的缩放
+    //     },
+    //     react: {
+    //         opacityDefault: 0.9, //设置透明度
+    //         opacityOnHover: 0.2
+    //     },
+    // });
   </script>
   
 </body>
