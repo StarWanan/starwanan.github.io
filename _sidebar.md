@@ -9,7 +9,7 @@
 	- [AcWing周赛](Algorithm/AcWing周赛.md)
 	- [AcWing2022寒假每日一题](Algorithm/AcWing2022寒假每日一题.md)
 	- [AcWing2021寒假每日一题(入门)](Algorithm/AcWing2021寒假每日一题(入门).md)
-- 人工智能
+- 神经网络深度学习 + 计算机视觉
 	- [异常分割](AI/异常分割.md)
 		- [PEBAL](AI/paper/PEBAL.md)
 		- [DMLNet](AI/paper/DMLNet.md)

@@ -540,10 +540,28 @@ expensive
 
 ### 根据元素获取下标位置
 #### 列表list
-`item()`, 获取 list 中相应元素的第一个位置
+内置方法`index()`, 获取 list 中相应元素的第一个位置。缺点是只能获得一个位置
 ```python
+a=[72, 56, 76, 84, 80, 88]
+print(a.index(76))
 
+>>> 2
 ```
+
+
+`enumerate()`函数
+```python
+a=[72, 56, 76, 84, 80, 88]
+print(list(enumerate(a)))
+
+>>> [(0, 72), (1, 56), (2, 76), (3, 84), (4, 80), (5, 88)]
+
+# 循环获取下标
+print([i for i,x in enumerate(a) if x == 76])
+>>> 2
+```
+
+
 
 #### 数组numpy.array
 使用 `where()`
@@ -560,6 +578,29 @@ print(info)
 info[0][0]
 >>>  1
 ```
+
+## numpy
+
+### ndarry
+```python
+a = np.array([1, 2, 3, 4, 5])
+b = np.array([1, 2, 3, 4, 5])
+d = np.array([1, 2, 3, 4, 0])
+ 
+# 判断两个ndarray中所有元素都相同
+print(a == b)
+>>> [ True  True  True  True  True]
+print((a == b).all())
+>>> True
+ 
+# 判断两个ndarray中同一位置上是否有相同元素
+print(a == d)
+>>> [ True  True  True  True False]
+print((a == d).any())
+>>> True
+```
+
+参考：[array的比较，is，is not...](https://blog.csdn.net/wangyangjingjing/article/details/81208318)
 
 ## 数据结构
 ### 字典
