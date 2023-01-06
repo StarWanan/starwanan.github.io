@@ -538,6 +538,29 @@ expensive
 
 ```
 
+### 根据元素获取下标位置
+#### 列表list
+`item()`, 获取 list 中相应元素的第一个位置
+```python
+
+```
+
+#### 数组numpy.array
+使用 `where()`
+```python
+import numpy
+a1 = numpy.array([5,10,15,20])
+
+# 获取元素信息
+info = numpy.where(vector==10)
+print(info)
+>>>  (array([1], dtype=int64),)
+
+# 元素下标
+info[0][0]
+>>>  1
+```
+
 ## 数据结构
 ### 字典
 #### 移除 key-value 对
@@ -557,6 +580,7 @@ dic.pop('a')
 # items()
 new_dic = {key:val for key, val in dic.items() if key != 'a'}
 ```
+
 
 ### 字符串
 `str.lower()` 全部转化为小写字母
