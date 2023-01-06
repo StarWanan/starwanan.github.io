@@ -1,4 +1,4 @@
-tmux
+# tmux使用指南
 
 ```
 1. tmux教程                                                                                                                                                                  

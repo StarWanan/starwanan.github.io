@@ -33,5 +33,6 @@
 		- [Softmax](AI/Softmax.md)
 		- [人脸损失](AI/人脸损失.md)
 		- [DBSCAN](AI/DBSCAN.md)
+		- [t-sne](AI/t-sne.md)
 
 

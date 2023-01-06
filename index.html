@@ -41,6 +41,22 @@
       //     }
       //   }
       // }
+      plugins: [
+        function(hook, vm) {
+          hook.beforeEach(function (html) {
+              //适配Markdown的====高亮语法
+              let res = html.match(/==(.+?)==/g);
+              for (var i = 0; i < res.length; i++) {
+                html = html.replace(res[i],`<span class="mark">`+res[i].replace(/==/g,"")+`</span>`);
+              }
+              //将更新时间加到文档的最顶部
+              return '> Last Modified {docsify-updated}'
+                    + '\n----\n'
+                    + html;
+          })
+        }
+      ]
+
     }
   </script>
   <script>
@@ -66,10 +82,14 @@
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 
   <!-- 数学公式插件 -->
+  <!-- 根据：https://github.com/upupming/docsify-katex -->
+  <script src="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+  <script src="//cdn.jsdelivr.net/npm/marked@4"></script>
+
   <!-- CDN files for docsify-katex -->
   <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
   <!-- or <script src="//cdn.jsdelivr.net/gh/upupming/docsify-katex@latest/dist/docsify-katex.js"></script> -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
 
   <!-- 代码高亮 -->
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
