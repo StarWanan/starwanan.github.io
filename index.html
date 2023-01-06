@@ -33,6 +33,23 @@
       subMaxLevel: 3,
       // 小屏设备下合并导航栏到侧边栏
       mergeNavbar: true,
+
+      // // 启用相对路径
+      // relativePath: true,
+
+      // autoHeader 根据 _sidebar.md 的内容自动为每个页面增加标题
+      loadSidebar: true,
+      autoHeader: true,
+
+      // formatUpdated 通过 {docsify-updated} 变量显示文档更新日期. 并且通过 formatUpdated配置日期格式。参考 https://github.com/lukeed/tinydate#patterns
+      // 下方插件中可以将修改时间放到文档顶部
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      formatUpdated: function(time) {
+        // ...
+
+        return time;
+      },
+
       // markdown: {
       //   smartypants: true,
       //   renderer: {
@@ -54,7 +71,26 @@
                     + '\n----\n'
                     + html;
           })
-        }
+        },
+        /*来必力评论*/
+        // function (hook, vm) {
+        //   // load livere
+        //   hook.beforeEach(function(content) {
+        //     var comment = "<div id='lv-container' data-id='city' data-uid='MTAyMC80MzA4MC8xOTYyNg=='></div>\n\n----\n"
+        //     return content + comment;
+        //   });
+
+        //   hook.doneEach(function() {
+        //     (function(d, s) {
+        //       var j, e = d.getElementsByTagName(s)[0];
+        //       if (typeof LivereTower === 'function') { return; }
+        //       j = d.createElement(s);
+        //       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        //       j.async = true;
+        //       e.parentNode.insertBefore(j, e);
+        //     })(document, 'script');
+        //   });
+        // }
       ]
 
     }
@@ -78,6 +114,18 @@
         } // 添加搜索框
     }
   </script>
+
+  <!-- Disqus 评论 -->
+  <!-- <script>
+    window.$docsify = {
+      disqus: 'shortname'
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/disqus.min.js"></script> -->
+
+
+
+
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 
@@ -100,11 +148,13 @@
   <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
   
-  
-
   <!--在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码-->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   
+
+
+
+
   <!-- emoji表情支持 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   
@@ -121,11 +171,15 @@
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
   
   <!-- 访问量统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- 访问量统计 -->
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
   <!-- Gitalk，一个现代化的，基于Preact和Github Issue的评论系统 -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
 
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
@@ -139,7 +193,19 @@
       // facebook-like distraction free mode
       distractionFreeMode: false
     })
-  </script>
+  </script> -->
+
+
+
+
+
+
+  <!-- 美化网站 -->
+  <!-- mouse click 点击出爱心-->
+  <script src="//cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
+
+  <!-- Live-2D看板娘模型 -->
+  <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 
   <!--Live-2D看板娘模型 -->
   <!-- <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script> -->

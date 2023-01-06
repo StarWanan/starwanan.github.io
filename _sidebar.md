@@ -1,6 +1,6 @@
 <!-- docs/_sidebar.md -->
 
-- [Home](/)
+- [Home](README.md)
 - 算法
 	- [算法模板](Algorithm/算法模板.md)
 	- [算法整理](Algorithm/算法整理.md)

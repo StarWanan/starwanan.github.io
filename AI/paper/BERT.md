@@ -1,19 +1,19 @@
 #AI/bert 
 
 
-# 原理
+## 原理
 
 [[Transformer]]
 
 
 
-# 工程
+## 工程
 
 参考博客：
 [BERT使用详解(实战)](https://www.jianshu.com/p/bfd0148b292e)
 [一文学会Pytorch版本BERT使用](https://zhuanlan.zhihu.com/p/113639892?ivk_sa=1024320u)
 
-# 使用方法
+## 使用方法
 1. 必备`import`
 	
 	`from transformers import BertTokenizer, BertModel, BertForMaskedLM`
@@ -52,7 +52,7 @@
    ```
 
 
-## 例子
+### 例子
 BERT调用
 
 ```python
