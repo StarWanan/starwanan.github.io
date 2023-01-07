@@ -23,6 +23,7 @@
 		- [服务器使用指南](AI/其他/服务器使用指南.md)
 		- [python&pytorch使用指南](AI/其他/python&pytorch使用指南.md)
 		- [tmux使用指南](AI/其他/tmux使用指南.md)
+		- [Linux基础命令](AI/其他/Linux基础命令.md)
 	- 经典模型
 		- [Transformer](AI/paper/Transformer.md)
 		- [BERT](AI/paper/BERT.md)
@@ -34,5 +35,34 @@
 		- [人脸损失](AI/人脸损失.md)
 		- [DBSCAN](AI/DBSCAN.md)
 		- [t-sne](AI/t-sne.md)
-
+- 课程笔记
+	- 计算机体系结构
+		- [体系结构考点](Course/计算机体系结构/体系结构考点.md)
+		- [体系结构作业](Course/计算机体系结构/体系结构作业.md)
+	- 编译原理
+		- [编译原理期末复习](Course/编译原理/编译原理期末复习.md)
+		- [编译原理test1](Course/编译原理/编译原理test1.md)
+		- [编译原理test2](Course/编译原理/编译原理test2.md)
+		- [编译原理test3](Course/编译原理/编译原理test3.md)
+		- [编译原理test4](Course/编译原理/编译原理test4.md)
+	- 嵌入式
+		- [嵌入式期末复习](Course/嵌入式/嵌入式期末复习.md)
+		- [嵌入式test1](Course/嵌入式/嵌入式test1.md)
+		- [嵌入式test2](Course/嵌入式/嵌入式test2.md)
+		- [嵌入式test3](Course/嵌入式/嵌入式test3.md)
+		- [嵌入式test4](Course/嵌入式/嵌入式test4.md)
+	- Linux
+		- [Linux期末复习](Course/Linux/Linux期末复习.md)
+	- 操作系统
+		- [xv6](Course/操作系统/xv6.md)
+		- [操作系统总结复习](Course/操作系统/操作系统总结复习.md)
+	- 高性能HPC
+		- [HPC-大作业](Course/HPC/HPC-大作业.md)
+		- [HPCtest1-MPI](Course/HPC/HPCtest1-MPI.md)
+		- [HPCtest2-Pthread](Course/HPC/HPCtest2-Pthread.md)
+		- [HPCtest3-OpenMP](Course/HPC/HPCtest3-OpenMP.md)
+		- [HPCtest4-CUDA](Course/HPC/HPCtest4-CUDA.md)
+	- [多媒体](Course/多媒体期末复习.md)
+	- [计算计网络](Course/计算计网络复习.md)
+	- [神经网络与深度学习](Course/神经网络与深度学习期末复习.md)
 

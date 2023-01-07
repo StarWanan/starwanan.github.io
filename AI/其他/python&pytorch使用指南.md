@@ -600,7 +600,7 @@ print((a == d).any())
 >>> True
 ```
 
-参考：[array的比较，is，is not...](https://blog.csdn.net/wangyangjingjing/article/details/81208318)
+参考与拓展：[array的比较，is，is not...](https://blog.csdn.net/wangyangjingjing/article/details/81208318)
 
 ## 数据结构
 ### 字典
