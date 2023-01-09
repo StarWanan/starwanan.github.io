@@ -26,7 +26,7 @@
       auto2top: true,
 
       // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
-      loadSidebar: true,
+      // loadSidebar: true,
       // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
       loadNavbar: true,
       // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
@@ -42,7 +42,7 @@
       // relativePath: true,
 
       // autoHeader 根据 _sidebar.md 的内容自动为每个页面增加标题
-      loadSidebar: true,
+      // loadSidebar: true,
       autoHeader: true,
 
       // formatUpdated 通过 {docsify-updated} 变量显示文档更新日期. 并且通过 formatUpdated配置日期格式。参考 https://github.com/lukeed/tinydate#patterns
@@ -53,15 +53,6 @@
 
         return time;
       },
-
-      // markdown: {
-      //   smartypants: true,
-      //   renderer: {
-      //     link: function() {
-      //       // ...
-      //     }
-      //   }
-      // }
       plugins: [
         function(hook, vm) {
           hook.beforeEach(function (html) {
@@ -76,29 +67,13 @@
                     + html;
           })
         },
-        /*来必力评论*/
-        // function (hook, vm) {
-        //   // load livere
-        //   hook.beforeEach(function(content) {
-        //     var comment = "<div id='lv-container' data-id='city' data-uid='MTAyMC80MzA4MC8xOTYyNg=='></div>\n\n----\n"
-        //     return content + comment;
-        //   });
-
-        //   hook.doneEach(function() {
-        //     (function(d, s) {
-        //       var j, e = d.getElementsByTagName(s)[0];
-        //       if (typeof LivereTower === 'function') { return; }
-        //       j = d.createElement(s);
-        //       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        //       j.async = true;
-        //       e.parentNode.insertBefore(j, e);
-        //     })(document, 'script');
-        //   });
-        // }
       ]
-
     }
   </script>
+
+
+  <!-- 搜索功能支持 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script>
     // 搜索配置(url：https://docsify.js.org/#/zh-cn/plugins?id=%e5%85%a8%e6%96%87%e6%90%9c%e7%b4%a2-search)
     window.$docsify = {
@@ -118,15 +93,6 @@
         } // 添加搜索框
     }
   </script>
-
-  <!-- Disqus 评论 -->
-  <!-- <script>
-    window.$docsify = {
-      disqus: 'shortname'
-    }
-  </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/disqus.min.js"></script> -->
-
 
 
 
@@ -158,16 +124,13 @@
 
 
 
-
   <!-- emoji表情支持 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   
   <!-- 图片放大缩小支持 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   
-  <!-- 搜索功能支持 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-
+  
   <!-- 分页导航插件 -->
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
 
@@ -175,29 +138,55 @@
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
   
   <!-- 访问量统计 -->
-  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
-  <!-- 访问量统计 -->
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
+  <!-- Gitalk 评论系统 -->
+  <!-- <link rel="stylesheet" href="https://starwanan.github.io/notebook/plugin/gitalk.css"> -->
+  <!-- Gitalk 评论系统 -->
+  <!-- <script src="https://starwanan.github.io/notebook/plugin/gitalk.js"></script>
+  <script src="https://starwanan.github.io/notebook/plugin/gitalk.min.js"></script>
+  <script src="https://starwanan.github.io/notebook/plugin/md5.min.js"></script>
+  <script>
+    // title_id需要初始化
+    window.title_id = window.location.hash.match(/#(.*?)([?]|$)/) ? window.location.hash.match(/#(.*?)([?]|$)/)[1] : '/';
+    const gitalk = new Gitalk({
+      clientID: '578dd266d01ec2cfbafe',
+      clientSecret: 'd2512777cac3a95ba54c61813d367117d07f6785',
+      repo: 'NoteBook',
+      owner: 'starwanan',
+      admin: ['starwanan'],
+      title: decodeURI(window.title_id),
+      distractionFreeMode: false,	// 是否添加全屏遮罩
+      id: md5(window.location.hash),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
+      enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter)
+    })
+    // 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
+    window.onhashchange = function (event) {
+      if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
+        location.reload()
+      }
+    }
+  </script> -->
 
-  <!-- Gitalk，一个现代化的，基于Preact和Github Issue的评论系统 -->
-  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
 
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
   <script>
     const gitalk = new Gitalk({
-      clientID: 'Github Application Client ID',
-      clientSecret: 'Github Application Client Secret',
+      clientID: '578dd266d01ec2cfbafe',
+      clientSecret: 'd2512777cac3a95ba54c61813d367117d07f6785',
       repo: 'Github repo',
       owner: 'Github repo owner',
       admin: ['Github repo collaborators, only these guys can initialize github issues'],
       // facebook-like distraction free mode
       distractionFreeMode: false
     })
-  </script> -->
+  </script>
+
+
 
 
 

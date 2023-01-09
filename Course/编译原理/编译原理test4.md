@@ -78,7 +78,7 @@
 4. 按照以下规则构造 Action 子表和 Goto 子表
 
    1. 若项目 $A$->$\alpha \cdotp \beta$ 属于 $I_k$ 且 $Go(I_k,a)=I_j$, $a$为终结符，则 $Action[k,a]=S_j$
-   2. 若项目 $A \rightarrow \alpha \cdotp$ 属于 $I_k$ ，那么对于任何终结符 $a$（或结束符 #），$Action[k,a] = \gamma_j$
+   2. 若项目 $A \rightarrow \alpha \cdotp$ 属于 $I_k$ ，那么对于任何终结符 $a$（或结束符 # ），$Action[k,a] = \gamma_j$
    3. 若项目 $S’ \rightarrow S\cdotp$ 属于 $I_k$， $Action[k,\#] = acc$
    4. 若 Go(I_k,A) = I_j, A为非终结符，则 Goto[k,A] = j
    5. 空白格为出错标志。
