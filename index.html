@@ -176,7 +176,10 @@
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
 	<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+	<!-- <script src="https://gist.github.com/StarWanan/6d7022ec921b4207422cd577300fff2e.js"></script> -->
+	<!-- <script src="https://rawgit.com/StarWanan/6d7022ec921b4207422cd577300fff2e.js"></script> -->
 	<!-- <div id="gitalk-container"></div> -->
+	<script src="/md5.min.js"></script>
 	<script>
 		const gitalk = new Gitalk({
 			clientID: '578dd266d01ec2cfbafe',
@@ -184,9 +187,10 @@
 			repo: 'starwanan.github.io',
 			owner: 'StarWanan',
 			admin: ['StarWanan'],
-			// title: decodeURI(window.title_id),
+			title: decodeURI(window.title_id),
 			distractionFreeMode: false,	// 是否添加全屏遮罩
-			// id: md5(window.location.hash),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
+			// id: md5(location.pathname),
+			id: md5(window.location.hash),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
 			// id: document.title,
 			// id: decodeURI(location.href),
 			// id: location.pathname,      // Ensure uniqueness and length less than 50
