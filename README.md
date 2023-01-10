@@ -9,7 +9,7 @@
 
 此处是笔记也是归档，记录所学也方便查看。会不断增加新的学习笔记，也会不定时补充整理之前学过的内容。
 如果有想让我补充可以联系我，我有条件有时间就会填坑。
-也非常欢迎所有人对本仓库contribution～
+也非常欢迎所有人对本仓库contribution～不熟悉的同学可以参考下面的CONTRIBUTION章节
 
 欢迎评论、交流、提建议～也可以顺手再右上角去我的github点一个 Star🌟，也可交换[友链](https://starwanan.github.io/)
 
@@ -50,6 +50,14 @@
 - [多媒体](Course/多媒体期末复习.md)
 - [计算计网络](Course/计算计网络复习.md)
 - [神经网络与深度学习](Course/神经网络与深度学习期末复习.md)
+
+## 贡献CONTRIBUTION
+非常欢迎任何人的贡献，接受pull requests，欢迎大家 star & fork！
+
+熟悉 Github Pull requests 的同学可以直接把自己笔记添加了后 PR 给我们，记得保证版本与我的仓库一致（也就是说提交到远程前先pull同步一下）。
+对于不熟悉PR的同学可以查阅[第一次参与开源](https://github.com/firstcontributions/first-contributions/blob/main/translations/README.zh-cn.md) 中的内容。
+
+有其他问题、建议、想法，都非常欢迎进行 PR 和 Issue
 
 
 ## 网站搭建
