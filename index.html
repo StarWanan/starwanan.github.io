@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
@@ -12,62 +13,67 @@
 	<!-- 默认主题 -->
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 	<!-- gitalk评论系统 -->
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+	<!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css"> -->
+	<!-- 数学公式插件 -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
 </head>
+
 <body>
 	<!-- 定义加载时候的动作 -->
 	<div id="app">加载中...</div>
 	<script>
 		window.$docsify = {
-			// 项目名称
-			name: 'StarWanan-blog',
-			// 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
-			repo: 'https://github.com/StarWanan',
-
-			// 切换页面后是否自动跳转到页面顶部。
-			auto2top: true,
-
-			// 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
-			// loadSidebar: true,
-			// 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
-			loadNavbar: true,
-			// 封面支持，默认加载的是项目根目录下的_coverpage.md文件
-			coverpage: true,
-			// 最大支持渲染的标题层级
-			maxLevel: 5,
-			// 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
-			subMaxLevel: 2,
-			// 小屏设备下合并导航栏到侧边栏
-			mergeNavbar: true,
-
-			// // 启用相对路径
-			// relativePath: true,
-
-			// autoHeader 根据 _sidebar.md 的内容自动为每个页面增加标题
-			// loadSidebar: true,
-			autoHeader: true,
+			name: 'StarWanan-blog',			// 项目名称
+			repo: 'https://github.com/StarWanan',		// 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
+			auto2top: true,			// 切换页面后是否自动跳转到页面顶部。
+			// loadSidebar: true,	// 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
+			// autoHeader: true,	// autoHeader 根据 _sidebar.md 的内容自动为每个页面增加标题
+			loadNavbar: true,		// 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
+			coverpage: true,		// 封面支持，默认加载的是项目根目录下的_coverpage.md文件
+			maxLevel: 5,			// 最大支持渲染的标题层级
+			subMaxLevel: 2,			// 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
+			mergeNavbar: true,		// 小屏设备下合并导航栏到侧边栏
+			// relativePath: true,	// 启用相对路径
 
 			// formatUpdated 通过 {docsify-updated} 变量显示文档更新日期. 并且通过 formatUpdated配置日期格式。参考 https://github.com/lukeed/tinydate#patterns
 			// 下方插件中可以将修改时间放到文档顶部
 			formatUpdated: '{MM}/{DD} {HH}:{mm}',
-			formatUpdated: function(time) {
+			formatUpdated: function (time) {
 				// ...
 
 				return time;
 			},
+
+			footer: {
+				// copy: '<span id="sitetime"></span>',
+				//		'<div class = "over" >完结</div> \
+				//		<br/><span>我能想到最浪漫的事，就是我喝咖啡你付钱❤️ \
+				// 			打赏地址：<a href="https://wugenqiang.js.org/sponsor/" target="_blank">https://wugenqiang.js.org/sponsor/</a> \
+				// 		</span> \
+				// 		<iframe \
+				// 			src="https://wugenqiang.js.org/sponsor/" style="overflow-x:hidden;overflow-y:hidden; min-height:240px; width:100%;"  frameborder="0" scrolling="no"> \
+				// 		</iframe> \
+				// 		<br/> \
+				// 		<span id="sitetime"></span><br/><span>Copyright &copy; 2023.1.1 - 至今</span>',
+
+				auth: ' <a href="https://starwanan.github.io/" target="_blank">🏷️ EnjoyToShare </a> <span> 一个人可以走的很快，但一群人才能走的更远！</span>',
+				pre: '<hr/>',
+				style: 'text-align: left;',
+			},//添加页脚
+
 			plugins: [
-				function(hook, vm) {
-				hook.beforeEach(function (html) {
-					//适配Markdown的====高亮语法
-					let res = html.match(/==(.+?)==/g);
-					for (var i = 0; i < res.length; i++) {
-						html = html.replace(res[i],`<span class="mark">`+res[i].replace(/==/g,"")+`</span>`);
-					}
-					//将更新时间加到文档的最顶部
-					return '> Last Modified {docsify-updated}'
+				function (hook, vm) {
+					hook.beforeEach(function (html) {
+						//适配Markdown的====高亮语法
+						let res = html.match(/==(.+?)==/g);
+						for (var i = 0; i < res.length; i++) {
+							html = html.replace(res[i], `<span class="mark">` + res[i].replace(/==/g, "") + `</span>`);
+						}
+						//将更新时间加到文档的最顶部
+						return '> Last Modified {docsify-updated}'
 							+ '\n----\n'
 							+ html;
-				})
+					})
 				},
 			]
 		}
@@ -80,8 +86,8 @@
 		// 搜索配置(url：https://docsify.js.org/#/zh-cn/plugins?id=%e5%85%a8%e6%96%87%e6%90%9c%e7%b4%a2-search)
 		window.$docsify = {
 			search: {
-				maxAge: 86400000,// 过期时间，单位毫秒，默认一天
-				paths: auto,// 注意：仅适用于 paths: 'auto' 模式
+				maxAge: 86400000,	// 过期时间，单位毫秒，默认一天
+				paths: auto,		// 注意：仅适用于 paths: 'auto' 模式
 				placeholder: '搜索',
 				// 支持本地化
 				placeholder: {
@@ -104,7 +110,6 @@
 	<!-- 数学公式插件 -->
 	<!-- 根据：https://github.com/upupming/docsify-katex -->
 	<script src="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
 	<script src="//cdn.jsdelivr.net/npm/marked@4"></script>
 
 	<!-- CDN files for docsify-katex -->
@@ -119,67 +124,48 @@
 	<script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-c.min.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
-	
+
 	<!--在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码-->
 	<script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-	
 
 
+	<!-- 回到顶部功能 -->
+	<script src="plugin/jquery.js"></script>
+	<script src="plugin/jquery.goup.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$.goup({
+				trigger: 100,
+				bottomOffset: 52,
+				locationOffset: 25,
+				//title: 'TOP',
+				titleAsText: true
+			});
+		});
+	</script>
 
 	<!-- emoji表情支持 -->
 	<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
-	
+
 	<!-- 图片放大缩小支持 -->
 	<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-	
-	
+
 	<!-- 分页导航插件 -->
 	<script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
 
 	<!-- 字数统计 -->
 	<script src="//unpkg.com/docsify-count/dist/countable.js"></script>
-	
+
 	<!-- 访问量统计 -->
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
+	<!-- <script async src="plugin/busuanzi.pure.mini.js"></script> -->
 
 
 	<!-- Gitalk 评论系统 -->
-	<!-- <link rel="stylesheet" href="https://starwanan.github.io/notebook/plugin/gitalk.css"> -->
-	<!-- Gitalk 评论系统 -->
-	<!-- <script src="https://starwanan.github.io/notebook/plugin/gitalk.js"></script>
-	<script src="https://starwanan.github.io/notebook/plugin/gitalk.min.js"></script>
-	<script src="https://starwanan.github.io/notebook/plugin/md5.min.js"></script>
-	<script>
-		// title_id需要初始化
-		window.title_id = window.location.hash.match(/#(.*?)([?]|$)/) ? window.location.hash.match(/#(.*?)([?]|$)/)[1] : '/';
-		const gitalk = new Gitalk({
-		clientID: '578dd266d01ec2cfbafe',
-		clientSecret: 'd2512777cac3a95ba54c61813d367117d07f6785',
-		repo: 'NoteBook',
-		owner: 'starwanan',
-		admin: ['starwanan'],
-		title: decodeURI(window.title_id),
-		distractionFreeMode: false,	// 是否添加全屏遮罩
-		id: md5(window.location.hash),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
-		enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter)
-		})
-		// 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
-		window.onhashchange = function (event) {
-		if (event.newURL.split('?')[0] !== event.oldURL.split('?')[0]) {
-			location.reload()
-		}
-		}
-	</script> -->
-
-
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
 	<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-	<!-- <script src="https://gist.github.com/StarWanan/6d7022ec921b4207422cd577300fff2e.js"></script> -->
-	<!-- <script src="https://rawgit.com/StarWanan/6d7022ec921b4207422cd577300fff2e.js"></script> -->
-	<!-- <div id="gitalk-container"></div> -->
-	<script src="/md5.min.js"></script>
+	<script src="plugin/md5.min.js"></script>
 	<script>
 		const gitalk = new Gitalk({
 			clientID: '578dd266d01ec2cfbafe',
@@ -189,12 +175,7 @@
 			admin: ['StarWanan'],
 			title: decodeURI(window.title_id),
 			distractionFreeMode: false,	// 是否添加全屏遮罩
-			// id: md5(location.pathname),
 			id: md5(window.location.hash),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
-			// id: document.title,
-			// id: decodeURI(location.href),
-			// id: location.pathname,      // Ensure uniqueness and length less than 50
-			// idFrom: title,
 			enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter)
 		})
 		// 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
@@ -205,44 +186,56 @@
 		}
 	</script>
 
+	<!-- 运行时间统计 -->
+	<script language=javascript>
+		function siteTime() {
+			window.setTimeout("siteTime()", 1000);
+			var seconds = 1000;
+			var minutes = seconds * 60;
+			var hours = minutes * 60;
+			var days = hours * 24;
+			var years = days * 365;
+			var today = new Date();
+			var todayYear = today.getFullYear();
+			var todayMonth = today.getMonth() + 1;
+			var todayDate = today.getDate();
+			var todayHour = today.getHours();
+			var todayMinute = today.getMinutes();
+			var todaySecond = today.getSeconds();
+			/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+			year - 作为date对象的年份，为4位年份值
+			month - 0-11之间的整数，做为date对象的月份
+			day - 1-31之间的整数，做为date对象的天数
+			hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+			minutes - 0-59之间的整数，做为date对象的分钟数
+			seconds - 0-59之间的整数，做为date对象的秒数
+			microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+			var t1 = Date.UTC(2023, 01, 01, 00, 00, 00); //北京时间2022-01-01 00:00:00
+			var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+			var diff = t2 - t1;
+			var diffYears = Math.floor(diff / years);
+			var diffDays = Math.floor((diff / days) - diffYears * 365);
+			var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+			var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+			var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+			document.getElementById("sitetime").innerHTML = " 本网站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒 ";
+		}
+		siteTime();
+	</script>
 
 
 
 	<!-- 美化网站 -->
+
+	<!-- 添加页脚 -->
+	<script src="plugin/docsify-footer-enh.min.js"></script>
+
 	<!-- mouse click 点击出爱心-->
 	<script src="//cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
 
 	<!-- Live-2D看板娘 -->
 	<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 
-	<!--Live-2D看板娘模型 -->
-	<!-- <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script> -->
-	<!--Live-2D看板娘模型 -->
-	<!-- <script type="text/javascript">
-		// Live-2D看板娘模型
-		L2Dwidget.init({
-		    model: {
-		        //jsonpath控制显示那个小萝莉模型，下面这个就是我觉得最可爱的小萝莉模型 //hijiki  //izumi //shizuku //koharu
-		        jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json", //这里改模型，前面后面都要改
-		        scale: 1,
-		    },
-		    display: {
-		        position: "right", //设置看板娘的上下左右位置
-		        width: 60,  //小萝莉的宽度
-		        height: 100, //小萝莉的高度
-		        hOffset: 10,  //水平偏移
-		        vOffset: -20  //垂直偏移
-		    },
-		    mobile: {
-		        show: false,  //在移动端不显示
-		        scale: 0.4    //移动设备上的缩放
-		    },
-		    react: {
-		        opacityDefault: 0.9, //设置透明度
-		        opacityOnHover: 0.2
-		    },
-		});
-	</script> -->
-  
 </body>
+
 </html>
