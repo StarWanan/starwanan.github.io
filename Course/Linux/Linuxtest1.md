@@ -21,19 +21,19 @@
     	<tr style="font-weight:normal;"> 
     		<td style="width:20%;text-align:right;">授课教师</td>
     		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋">任继平</td>     </tr>
+    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"></td>     </tr>
     	<tr style="font-weight:normal;"> 
     		<td style="width:20%;text-align:right;">姓　　名</td>
     		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> 朱焰星</td>     </tr>
+    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> </td>     </tr>
         <tr style="font-weight:normal;"> 
     		<td style="width:20%;text-align:right;">班　　级</td>
     		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> 计科1901</td>     </tr>
+    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> </td>     </tr>
     	<tr style="font-weight:normal;"> 
     		<td style="width:20%;text-align:right;">学　　号</td>
     		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋">2019317220115 </td>     </tr>
+    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> </td>     </tr>
     	<tr style="font-weight:normal;"> 
     		<td style="width:20%;text-align:right;">日　　期</td>
     		<td style="width:2%">：</td> 
@@ -136,7 +136,7 @@ c3(no)->c4(yes)->op3(right)->e
 
 
 
-### 详细设计 　　
+### 详细设计　　
 
 #### 数据类型实现
 
@@ -281,7 +281,7 @@ c2(yes)->sub2
 
 
 
-### 调试分析： 　　
+### 调试分析：　　
 
 问题1：在输出文件seekoff时，原本结构体是soff，但是在运行时报错。
 

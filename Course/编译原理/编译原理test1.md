@@ -21,19 +21,19 @@
     	<tr style="font-weight:normal;"> 
     		<td style="width:20%;text-align:right;">授课教师</td>
     		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋">汪毅</td>     </tr>
+    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"></td>     </tr>
     	<tr style="font-weight:normal;"> 
     		<td style="width:20%;text-align:right;">姓　　名</td>
     		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> 朱焰星</td>     </tr>
+    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> </td>     </tr>
         <tr style="font-weight:normal;"> 
     		<td style="width:20%;text-align:right;">班　　级</td>
     		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> 计科1901</td>     </tr>
+    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> </td>     </tr>
     	<tr style="font-weight:normal;"> 
     		<td style="width:20%;text-align:right;">学　　号</td>
     		<td style="width:2%">：</td> 
-    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋">2019317220115 </td>     </tr>
+    		<td style="width:40%;font-weight:normal;border-bottom: 1px solid;text-align:center;font-family:华文仿宋"> </td>     </tr>
     	<tr style="font-weight:normal;"> 
     		<td style="width:20%;text-align:right;">日　　期</td>
     		<td style="width:2%">：</td> 
@@ -159,8 +159,6 @@ id["char"] = 30;
 
 读入文件：
 <img src="https://s1.vika.cn/space/2022/06/24/8ad59b3b432243569a88685d66414db1" alt="image-20220624231226380" style="zoom:50%;" />
-
-
 
 输出文件：
 <img src="https://s1.vika.cn/space/2022/06/24/cb22c15891b84e0b87702e72ab8f7c36" alt="image-20220624231244687" style="zoom:50%;" />
