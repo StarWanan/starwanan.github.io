@@ -1,1 +1,1 @@
-[火星人](Algorithm/Problems/火星人.md)
+[AcWing 420. 火星人](Problems/AcWing%20420.%20火星人.md)

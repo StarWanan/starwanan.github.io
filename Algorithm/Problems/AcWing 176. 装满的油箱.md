@@ -1,4 +1,4 @@
-[176. 装满的油箱 - AcWing题库](https://www.acwing.com/problem/content/description/178/)
+[176. 装满的油箱 -  题库](https://www.acwing.com/problem/content/description/178/)
 #算法/拆点 #算法/最短路 #算法/dijkstra
 
 N点M无向边，每个点油价不同。有容量为C的油箱，问求起点到终点的最短路。

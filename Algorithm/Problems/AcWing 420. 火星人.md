@@ -1,5 +1,6 @@
 #算法/序列顺序 
 
+https://www.acwing.com/problem/content/422/
 
 ```CPP
 #include<bits/stdc++.h>

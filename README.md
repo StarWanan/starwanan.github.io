@@ -11,7 +11,6 @@
 
 欢迎评论、交流、提建议～也可以顺手再右上角去我的github点一个 Star🌟，也可交换[友链](https://starwanan.github.io/)
 
-
 ## 算法
 - [算法模板](Algorithm/算法模板.md)
 - [算法整理](Algorithm/算法整理.md)
@@ -46,6 +45,7 @@
 
 ## 课程笔记
 
+### 计算机专业课
 - 计算机体系结构
 	- [体系结构考点](Course/计算机体系结构/体系结构考点.md)
 	- [体系结构作业](Course/计算机体系结构/体系结构作业.md)
@@ -66,6 +66,7 @@
 - 操作系统
 	- [xv6](Course/操作系统/xv6.md)
 	- [操作系统总结复习](Course/操作系统/操作系统总结复习.md)
+	- [操作系统实验报告](Course/操作系统/操作系统实验报告.md)
 - 高性能HPC
 	- [HPC-大作业](Course/HPC/HPC-大作业.md)
 	- [HPCtest1-MPI](Course/HPC/HPCtest1-MPI.md)
@@ -73,8 +74,20 @@
 	- [HPCtest3-OpenMP](Course/HPC/HPCtest3-OpenMP.md)
 	- [HPCtest4-CUDA](Course/HPC/HPCtest4-CUDA.md)
 - [多媒体](Course/多媒体期末复习.md)
-- [计算计网络](Course/计算计网络复习.md)
+- [计算机网络](Course/计算计网络复习.md)
 - [神经网络与深度学习](Course/神经网络与深度学习期末复习.md)
+
+### 思想政治课
+
+
+
+## 部门建设
+### ACM集训队
+- [ACM集训队](部门建设/ACM集训队.md)
+
+### 科技创新中心
+
+
 
 ## 贡献CONTRIBUTION
 非常欢迎任何人的贡献，接受pull requests，欢迎大家 star & fork！

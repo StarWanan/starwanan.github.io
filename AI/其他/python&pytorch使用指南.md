@@ -579,9 +579,32 @@ info[0][0]
 >>>  1
 ```
 
-## numpy
+## Matplotlib
 
-### ndarry
+绘制图片、保存图片
+```python
+plt.savefig('savepic.png')#保存图片
+plt.show()
+```
+
+
+## 随机数random
+
+随机生成 \[a, b\] 范围内的整数
+```python
+import random
+random.randint(a,b)
+```
+
+## numpy
+[numpy | 菜鸟教程](https://www.runoob.com/numpy/numpy-tutorial.html)
+
+### N维数组对象 ndarray
+#### 创建数组
+##### 从已有的数组创建
+参考：[菜鸟教程](https://www.runoob.com/numpy/numpy-array-from-existing-data.html)
+
+#### array的比较
 ```python
 a = np.array([1, 2, 3, 4, 5])
 b = np.array([1, 2, 3, 4, 5])
@@ -603,7 +626,37 @@ print((a == d).any())
 参考与拓展：[array的比较，is，is not...](https://blog.csdn.net/wangyangjingjing/article/details/81208318)
 
 ## 数据结构
-### 字典
+
+### 列表list
+#### 判断某元素是否在列表中
+1. 循环暴力判断
+2. `in` 关键字
+```python
+test_list = [ 1, 6, 3, 5, 3, 4 ] 
+for i in test_list: 
+    if(i == 4) : 
+        print ("存在")
+
+if (4 in test_list): 
+    print ("存在") 
+```
+
+
+3. `set() + in`
+4. `count()`
+```python
+test_list_set = [ 1, 6, 3, 5, 3, 4 ] 
+test_list_bisect = [ 1, 6, 3, 5, 3, 4 ]
+test_list_set = set(test_list_set) 
+if 4 in test_list_set : 
+    print ("存在") 
+
+
+if test_list_bisect.count(4) > 0 :
+    print ("存在") 
+```
+
+### 字典dict
 #### 移除 key-value 对
 ```python
 dic = {
