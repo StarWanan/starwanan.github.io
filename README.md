@@ -63,6 +63,10 @@
 	- [嵌入式test4](Course/嵌入式/嵌入式test4.md)
 - Linux
 	- [Linux期末复习](Course/Linux/Linux期末复习.md)
+	- [Linuxtest1](Course/Linux/Linuxtest1.md)
+	- [Linuxtest2](Course/Linux/Linuxtest2.md)
+	- [Linuxtest3](Course/Linux/Linuxtest3.md)
+	- [Linuxtest4](Course/Linux/Linuxtest4.md)
 - 操作系统
 	- [xv6](Course/操作系统/xv6.md)
 	- [操作系统总结复习](Course/操作系统/操作系统总结复习.md)
@@ -78,6 +82,9 @@
 - [神经网络与深度学习](Course/神经网络与深度学习期末复习.md)
 
 ### 思想政治课
+- 毛泽东思想和中国特色社会主义理论体系概论
+	- [毛概期末复习重点](Course/毛泽东思想和中国特色社会主义理论体系概论/毛概期末复习重点.md)
+
 
 
 
