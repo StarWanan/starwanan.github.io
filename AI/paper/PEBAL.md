@@ -156,7 +156,7 @@ $$
 | :------------------------: | ------------------------------------------------- |
 |          $\theta$          | 模型参数                                          |
 |          $\omega$          | 图像点阵 $\Omega$ 中的像素索引                    |
-| $p_{\theta}(y|\text{x})_w$ | 标注像素 $\omega$ 在标签 $\{1,...,Y+1\}$ 上的概率 |
+| $p_{\theta}(y\|\text{x})_w$ | 标注像素 $\omega$ 在标签 $\{1,...,Y+1\}$ 上的概率 |
 | $f_{\theta}(y;\text{x})_w$ | 像素 $\omega$ 在类别 $y$ 上的logit值[^1]          |
 
 流程图：
@@ -165,8 +165,8 @@ $$
 
 |                     符号                     | 解释                                                         |
 | :------------------------------------------: | ------------------------------------------------------------ |
-|  $D^{in} = \{(x_i, y_i^{in})\}^{|D^{in}|}$   | inlier的训练图像和注释。<br />$x \in \mathcal{X} \subset \R^{H \times W \times C}$<br/>$y \in \mathcal{Y} \subset [0,1]^{H \times W \times Y}$ |
-| $D^{out} = \{(x_i, y_i^{out})\}^{|D^{out}|}$ | outlier的训练图像和注释。<br />$y \in \mathcal{Y} \subset [0,1]^{H \times W \times (Y+1)}$ |
+|  $D^{in} = \{(x_i, y_i^{in})\}^{\|D^{in}\|}$   | inlier的训练图像和注释。<br />$x \in \mathcal{X} \subset \R^{H \times W \times C}$<br/>$y \in \mathcal{Y} \subset [0,1]^{H \times W \times Y}$ |
+| $D^{out} = \{(x_i, y_i^{out})\}^{\|D^{out}\|}$ | outlier的训练图像和注释。<br />$y \in \mathcal{Y} \subset [0,1]^{H \times W \times (Y+1)}$ |
 
 ### （一）PEBAL_Loss
 
