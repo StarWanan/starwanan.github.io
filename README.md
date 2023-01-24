@@ -31,6 +31,7 @@
 	- [python&pytorch使用指南](AI/其他/python&pytorch使用指南.md)
 	- [tmux使用指南](AI/其他/tmux使用指南.md)
 	- [Linux基础命令](AI/其他/Linux基础命令.md)
+	- [git&Github](git&Github.md)
 - 经典模型
 	- [Transformer](AI/paper/Transformer.md)
 	- [BERT](AI/paper/BERT.md)
