@@ -1,4 +1,4 @@
-# HelloWorld!
+# Hello World!
 <span id="sitetime"></span>
 
 > StarWanan's Blog & Life
@@ -11,7 +11,11 @@
 
 欢迎评论、交流、提建议～也可以顺手再右上角去我的github点一个 Star🌟，也可交换[友链](https://starwanan.github.io/)
 
-## 算法
+## 智能优化算法
+- P-Center and Unicost Set Covering 中心选址与单一成本集合覆盖
+	- [Vertex Weighting-Based Tabu Search for p-Center Problem](Smart/Vertex%20Weighting-Based%20Tabu%20Search%20for%20p-Center%20Problem.md)
+
+## ACM竞赛算法题
 - [算法模板](Algorithm/算法模板.md)
 - [算法整理](Algorithm/算法整理.md)
 - [AcWing算法课](Algorithm/AcWing算法课.md)
@@ -90,10 +94,8 @@
 
 
 ## 部门建设
-### ACM集训队
 - [ACM集训队](部门建设/ACM集训队.md)
 
-### 科技创新中心
 
 
 
