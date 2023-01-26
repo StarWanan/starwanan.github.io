@@ -11,16 +11,18 @@
 
 欢迎评论、交流、提建议～也可以顺手再右上角去我的github点一个 Star🌟，也可交换[友链](https://starwanan.github.io/)
 
-## 智能优化算法
+## 学习笔记
+### 智能优化算法
 - P-Center and Unicost Set Covering 中心选址与单一成本集合覆盖
+	- [P-Center中心选址问题](Smart/P-Center中心选址问题.md)
 	- [Vertex Weighting-Based Tabu Search for p-Center Problem](Smart/Vertex%20Weighting-Based%20Tabu%20Search%20for%20p-Center%20Problem.md)
 
-## ACM竞赛算法题
+### ACM竞赛
 - [算法模板](Algorithm/算法模板.md)
 - [算法整理](Algorithm/算法整理.md)
 - [AcWing算法课](Algorithm/AcWing算法课.md)
 
-## 神经网络与深度学习；计算机视觉
+### 神经网络与深度学习&计算机视觉
 - [异常分割](AI/异常分割.md)
 	- [PEBAL](AI/paper/PEBAL.md)
 	- [DMLNet](AI/paper/DMLNet.md)
@@ -30,12 +32,6 @@
 	- [SynthCP](AI/paper/SynthCP.md)
 	- [SML](AI/paper/SML.md)
 	- [Max Logits](AI/paper/Max%20Logits.md)
-- tools
-	- [服务器使用指南](AI/其他/服务器使用指南.md)
-	- [python&pytorch使用指南](AI/其他/python&pytorch使用指南.md)
-	- [tmux使用指南](AI/其他/tmux使用指南.md)
-	- [Linux基础命令](AI/其他/Linux基础命令.md)
-	- [git&Github](git&Github.md)
 - 经典模型
 	- [Transformer](AI/paper/Transformer.md)
 	- [BERT](AI/paper/BERT.md)
@@ -47,8 +43,6 @@
 	- [人脸损失](AI/人脸损失.md)
 	- [DBSCAN](AI/DBSCAN.md)
 	- [t-sne](AI/t-sne.md)
-
-## 课程笔记
 
 ### 计算机专业课
 - 计算机体系结构
@@ -86,6 +80,15 @@
 - [计算机网络](Course/计算计网络复习.md)
 - [神经网络与深度学习](Course/神经网络与深度学习期末复习.md)
 
+### 计算机-其他
+记录遇到的问题，用过的技巧等
+- [python&pytorch使用笔记](AI/其他/python&pytorch使用笔记.md)
+- [tmux使用笔记](AI/其他/tmux使用笔记.md)
+- [Linux命令](AI/其他/Linux命令.md)
+- [git&Github](git&Github.md)
+- [关于C++](Smart/关于C++.md)
+
+
 ### 思想政治课
 - 毛泽东思想和中国特色社会主义理论体系概论
 	- [毛概期末复习重点](Course/毛泽东思想和中国特色社会主义理论体系概论/毛概期末复习重点.md)
@@ -110,7 +113,8 @@
 
 ## 网站搭建
 
-### 一些想实现的功能
+**一些想实现的功能**
+- [ ] 内嵌文件
 - [ ] ==markdown高亮==
 - [x] 【2023.1.10已实现】回到顶部功能
 - [x] 【2023.1.7已实现】live2D看板娘
@@ -120,9 +124,16 @@ $$
 L_y = \sum_{i=1}^N x_i
 $$
 
-### 部署脚本 
-push.sh
+
+**本站搭建过程**
+
+美化与部分功能参考：https://blog.csdn.net/wugenqiang/article/details/107071378
+
+
+
+**部署脚本** 
 ```sh
+# push.sh
 message=$1
 
 # 更新 master
@@ -130,7 +141,3 @@ git add .
 git commit -m "$message"
 git push -f git@github.com:StarWanan/starwanan.github.io.git master
 ```
-
-### 本站搭建过程
-
-美化与部分功能参考：https://blog.csdn.net/wugenqiang/article/details/107071378

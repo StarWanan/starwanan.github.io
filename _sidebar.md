@@ -20,10 +20,10 @@
 		- [SML](AI/paper/SML.md)
 		- [Max Logits](AI/paper/Max%20Logits.md)
 	- tools
-		- [服务器使用指南](AI/其他/服务器使用指南.md)
-		- [python&pytorch使用指南](AI/其他/python&pytorch使用指南.md)
-		- [tmux使用指南](AI/其他/tmux使用指南.md)
-		- [Linux基础命令](AI/其他/Linux基础命令.md)
+		- [服务器命令笔记](AI/其他/服务器命令笔记.md)
+		- [python&pytorch使用笔记](AI/其他/python&pytorch使用笔记.md)
+		- [tmux使用笔记](AI/其他/tmux使用笔记.md)
+		- [Linux命令](AI/其他/Linux命令.md)
 	- 经典模型
 		- [Transformer](AI/paper/Transformer.md)
 		- [BERT](AI/paper/BERT.md)
