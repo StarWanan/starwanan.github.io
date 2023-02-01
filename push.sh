@@ -3,4 +3,7 @@ message=$1
 # 更新 master
 git add .
 git commit -m "$message"
+# Github
 git push -f git@github.com:StarWanan/starwanan.github.io.git master
+# Gitee
+git push -f git@gitee.com:zyxstar/starwanan.github.io.git master
