@@ -11,6 +11,8 @@
 
 欢迎评论、交流、提建议～也可以顺手再右上角去我的github点一个 Star🌟，也可交换[友链](https://starwanan.github.io/)
 
+仓库同步在[Gitee](https://gitee.com/zyxstar/starwanan.github.io)更新, 由于Gitee审核问题，没有部署Gitee Page。
+
 ## 学习笔记
 ### 智能优化算法
 - P-Center and Unicost Set Covering 中心选址与单一成本集合覆盖
@@ -133,11 +135,13 @@ $$
 
 **部署脚本** 
 ```sh
-# push.sh
 message=$1
 
 # 更新 master
 git add .
 git commit -m "$message"
+# Github
 git push -f git@github.com:StarWanan/starwanan.github.io.git master
+# Gitee
+git push -f git@gitee.com:zyxstar/starwanan.github.io.git master
 ```
