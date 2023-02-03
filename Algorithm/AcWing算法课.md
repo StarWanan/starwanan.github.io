@@ -5,6 +5,7 @@
 ### DP
 #### 数字三角形模型
 - [AcWing 1015. 摘花生](Algorithm/Problems/AcWing%201015.%20摘花生.md)
+- [AcWing 1018. 最低通行费](Algorithm/Problems/AcWing%201018.%20最低通行费.md)
 - 
 
 
