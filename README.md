@@ -25,20 +25,16 @@
 - [AcWing算法课](Algorithm/AcWing算法课.md)
 
 ### 神经网络与深度学习&计算机视觉
-- [异常分割](AI/异常分割.md)
+- 论文阅读
+	- [[MoCo：Momentum Contrast for Unsupervised Visual Representation Learning]]
+	- [Transformer](AI/paper/Transformer.md)
 	- [PEBAL](AI/paper/PEBAL.md)
 	- [DMLNet](AI/paper/DMLNet.md)
-	- [CosMe](AI/paper/CosMe.md)
 	- [NFlowJS](AI/paper/NFlowJS.md)
 	- [PAnS](AI/paper/PAnS.md)
 	- [SynthCP](AI/paper/SynthCP.md)
 	- [SML](AI/paper/SML.md)
 	- [Max Logits](AI/paper/Max%20Logits.md)
-- 经典模型
-	- [Transformer](AI/paper/Transformer.md)
-	- [BERT](AI/paper/BERT.md)
-	- [clip](AI/paper/clip.md)
-	- [diffusion](AI/paper/diffusion.md)
 - 学习笔记
 	- [目标函数](AI/目标函数.md)
 	- [Softmax](AI/Softmax.md)
@@ -96,8 +92,6 @@
 	- [毛概期末复习重点](Course/毛泽东思想和中国特色社会主义理论体系概论/毛概期末复习重点.md)
 
 
-
-
 ## 部门建设
 - [ACM集训队](部门建设/ACM集训队.md)
 
@@ -129,7 +123,7 @@ $$
 
 **本站搭建过程**
 
-美化与部分功能参考：https://blog.csdn.net/wugenqiang/article/details/107071378
+美化与部分功能参考： https://blog.csdn.net/wugenqiang/article/details/107071378
 
 
 

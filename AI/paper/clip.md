@@ -25,7 +25,6 @@ Contrastive Language-Image Pre-training
 
 训练一个模型，可以不再微调应用到下游任务
 
-
 prompt：提示，主要是在微调和推理的时候使用
 需要prompt engineering 和 ensemble 的原因：
 - 多义词。所以只用一个词做 prompt 会出现歧义。
@@ -33,7 +32,6 @@ prompt：提示，主要是在微调和推理的时候使用
 
 prompt template 提示模版 a photo of {label}. 这里也限定了一定是名词。
 而且也能加入限定的先验知识。 a type of food 等
-
 
 linear probe：训练好冻住，只训练一个分类头。参数量很少
 fine-tune：需要为不同数据集量身定制参数
