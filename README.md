@@ -26,7 +26,7 @@
 
 ### 神经网络与深度学习&计算机视觉
 - 论文阅读
-	- [Object-Aawre Cropping for Self-Supervised Learing](01%20AI/paper/Object-Aawre%20Cropping%20for%20Self-Supervised%20Learing.md)
+	- [Object-Aware Cropping for Self-Supervised Learing](01%20AI/paper/Object-Aware%20Cropping%20for%20Self-Supervised%20Learing.md)
 	- [MoCo：Momentum Contrast for Unsupervised Visual Representation Learning](01%20AI/paper/MoCo：Momentum%20Contrast%20for%20Unsupervised%20Visual%20Representation%20Learning.md)
 	- [Transformer](01%20AI/paper/Transformer.md)
 	- [PEBAL](01%20AI/paper/PEBAL.md)
@@ -94,7 +94,7 @@
 
 
 ## 部门建设
-- [ACM集训队](06%20部门建设/ACM集训队.md)
+- [ACM集训队](05%20部门建设/ACM集训队.md)
 
 
 
