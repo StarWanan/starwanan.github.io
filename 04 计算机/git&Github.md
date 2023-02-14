@@ -1,7 +1,13 @@
 ### git命令
+clone
+```sh
+git clone [-b 分支] https://xxx.git
+```
+
 
 
 ### github拉取代码
+
 
 报错`GnuTLS recv error (-110): The TLS connection was non-properly terminated`
 
@@ -10,6 +16,8 @@
 ```
 git config --global --unset http.https://github.com.proxy
 ```
+
+
 
 ### github 的一些报错
 ```sh

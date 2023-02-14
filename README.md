@@ -26,6 +26,7 @@
 
 ### 神经网络与深度学习&计算机视觉
 - 论文阅读
+	- [MAE：Masked Autoencoders Are Scalable Vision Learners](01%20AI/paper/MAE：Masked%20Autoencoders%20Are%20Scalable%20Vision%20Learners.md)
 	- [Object-Aware Cropping for Self-Supervised Learing](01%20AI/paper/Object-Aware%20Cropping%20for%20Self-Supervised%20Learing.md)
 	- [MoCo：Momentum Contrast for Unsupervised Visual Representation Learning](01%20AI/paper/MoCo：Momentum%20Contrast%20for%20Unsupervised%20Visual%20Representation%20Learning.md)
 	- [Transformer](01%20AI/paper/Transformer.md)

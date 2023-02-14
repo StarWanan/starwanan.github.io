@@ -6,4 +6,4 @@ git commit -m "$message"
 # Github
 git push git@github.com:StarWanan/starwanan.github.io.git master
 # Gitee
-git push git@gitee.com:zyxstar/starwanan.github.io.git master
+# git push git@gitee.com:zyxstar/starwanan.github.io.git master

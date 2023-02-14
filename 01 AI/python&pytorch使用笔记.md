@@ -87,7 +87,35 @@ transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 
 Normalize是把图像数据从[0,1]变成[-1,1]，变换公式是image=(image-mean)/std，那么其中的参数就分别是三个通道的mean和std，这个均值和标准差需要自己计算，范围就是训练集和验证集的所有图像。
 
-### DataLoader
+
+### Sampler
+[Pytorch Sampler详解 - cnblog](https://www.cnblogs.com/marsggbo/p/11541054.html)
+  
+所有的采样器都继承自`Sampler`这个类,可以看到主要有三种方法：分别是：
+-   `__init__`: 这个很好理解，就是初始化
+-   `__iter__`: 这个是用来产生迭代索引值的，也就是指定每个step需要读取哪些数据
+-   `__len__`: 这个是用来返回每次迭代器的长度
+
+```python
+class Sampler(object):
+    r"""Base class for all Samplers.
+    Every Sampler subclass has to provide an __iter__ method, providing a way
+    to iterate over indices of dataset elements, and a __len__ method that
+    returns the length of the returned iterators.
+    """
+    # 一个 迭代器 基类
+    def __init__(self, data_source):
+        pass
+
+    def __iter__(self):
+        raise NotImplementedError
+
+    def __len__(self):
+        raise NotImplementedError
+```
+
+
+### DataSet、DataLoader
 
 [CSDN原文链接](https://blog.csdn.net/weixin_42468475/article/details/108714940)
 [collate_fn参数使用详解 —— 知乎](https://zhuanlan.zhihu.com/p/361830892)
@@ -214,7 +242,7 @@ for i_batch, batch_data in enumerate(data_loader):
     print(batch_data[1].size())  ## 打印该batch里面trg
 ```
 
-3. 地址读取，生成数据的路径 txt文件
+3. 地址读取，生成数据的路径 txt 文件
 
 ```python
 import os
@@ -281,6 +309,57 @@ if __name__ == '__main__':
             print(img.shape)
             print(label.shape)
 ```
+
+
+
+### Sampler DataSet DataLoader之间的关系
+
+^6dcc27
+
+> [一文弄懂Pytorch的DataLoader, DataSet, Sampler之间的关系 - cnblog](https://www.cnblogs.com/marsggbo/p/11308889.html)
+
+dataloader 源码：
+```python
+class DataLoader(object):
+    def __init__(self, dataset, batch_size=1, shuffle=False, sampler=None,
+				 batch_sampler=None, num_workers=0, collate_fn=default_collate,
+				 pin_memory=False, drop_last=False, timeout=0,
+				 worker_init_fn=None)
+```
+有两个和sampler相关的参数：
+- `sampler`: 生成一系列的 index
+- `batch_sampler`: 将sampler生成的 indices 打包分组
+
+需要注意的是DataLoader的部分初始化参数之间存在互斥关系，可以通过阅读[源码](https://github.com/pytorch/pytorch/blob/0b868b19063645afed59d6d49aff1e43d1665b88/torch/utils/data/dataloader.py#L157-L182)更深地理解，这里只做总结：
+- 如果你自定义了`batch_sampler`,那么这些参数都必须使用默认值：`batch_size`, `shuffle`,`sampler`,`drop_last`.
+- 如果你自定义了`sampler`，那么`shuffle`需要设置为`False`
+- 如果`sampler`和`batch_sampler`都为`None`,那么`batch_sampler`使用Pytorch已经实现好的`BatchSampler`,而`sampler`分两种情况：
+    - 若`shuffle=True`,则`sampler=RandomSampler(dataset)`
+    - 若`shuffle=False`,则`sampler=SequentialSampler(dataset)`
+
+Sampler 源码：
+```python
+class Sampler(object):
+    r"""Base class for all Samplers.
+    Every Sampler subclass has to provide an :meth:`__iter__` method, providing a
+    way to iterate over indices of dataset elements, and a :meth:`__len__` method
+    that returns the length of the returned iterators.
+    .. note:: The :meth:`__len__` method isn't strictly required by
+              :class:`~torch.utils.data.DataLoader`, but is expected in any
+              calculation involving the length of a :class:`~torch.utils.data.DataLoader`.
+    """
+
+    def __init__(self, data_source):
+        pass
+
+    def __iter__(self):
+        raise NotImplementedError
+		
+    def __len__(self):
+        return len(self.data_source)
+```
+
+
 
 ## 网络模型
 
