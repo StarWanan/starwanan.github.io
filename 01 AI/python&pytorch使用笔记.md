@@ -169,7 +169,7 @@ def __len__(self):
 
 
 
-`getitem()`方法用来从datasets中读取一条数据，这条数据包含训练**图片**（已CV距离）和**标签**，参数index表示图片和标签在总数据集中的Index。
+`getitem()`方法用来从datasets中读取一条数据，这条数据包含训练**图片**（以图片举例）和**标签**，参数index表示图片和标签在总数据集中的Index。
 
 `len()`方法返回数据集的总长度（训练集的总数）。
 
@@ -225,7 +225,6 @@ for i_batch, (src, trg) in enumerate(data_loader_test):
 生成的data_train可以通过 `data_train[xxx]`直接索引某个元素，或者通过`next(iter(data_train))` 得到一条条的数据。
 
 2. 借助TensorDataset将数据包装成dataset
-
 ```python
 import torch
 from torch import nn
@@ -243,7 +242,6 @@ for i_batch, batch_data in enumerate(data_loader):
 ```
 
 3. 地址读取，生成数据的路径 txt 文件
-
 ```python
 import os
 
@@ -313,10 +311,15 @@ if __name__ == '__main__':
 
 
 ### Sampler DataSet DataLoader之间的关系
-
-^6dcc27
-
 > [一文弄懂Pytorch的DataLoader, DataSet, Sampler之间的关系 - cnblog](https://www.cnblogs.com/marsggbo/p/11308889.html)
+> [迄今为止最细致的DataSet和Dataloader加载步骤 - 知乎](https://zhuanlan.zhihu.com/p/381224748)
+
+
+![image.png](https://s1.vika.cn/space/2023/02/15/d8e3873e2a0e4ad491191cfc498cd743)
+
+![image.png](https://s1.vika.cn/space/2023/02/15/8739a8e8fc454b799e25aaf242a27a35)
+
+
 
 dataloader 源码：
 ```python
@@ -359,13 +362,55 @@ class Sampler(object):
         return len(self.data_source)
 ```
 
+DataSet:
+```python
+class Dataset(object):
+	def __init__(self):
+		...
+		
+	def __getitem__(self, index):
+		return ...
+	
+	def __len__(self):
+		return ...
+```
+
+`__next__`:DataLoader对数据的读取其实就是用了for循环来遍历数据
+```python
+class DataLoader(object): 
+    ... 
+     
+    def __next__(self): 
+        if self.num_workers == 0:   
+            indices = next(self.sample_iter)  
+            batch = self.collate_fn([self.dataset[i] for i in indices]) # this line 
+            if self.pin_memory: 
+                batch = _utils.pin_memory.pin_memory_batch(batch) 
+            return batch
+```
+
+合并成一个batch的操作：
+```python
+class DataLoader(object): 
+    ... 
+     
+    def __next__(self): 
+        if self.num_workers == 0:   
+            indices = next(self.sample_iter)  
+            batch = self.collate_fn([self.dataset[i] for i in indices]) # this line 
+            if self.pin_memory: 
+                batch = _utils.pin_memory.pin_memory_batch(batch) 
+            return batch
+```
+- `indices`: 表示每一个iteration，sampler返回的indices，即一个batch size大小的索引列表
+- `self.dataset[i]`: 这里就是对第i个数据进行读取操作，一般来说`self.dataset[i]=(img, label)`
+看到这不难猜出`collate_fn`的作用就是将一个batch的数据进行合并操作。默认的`collate_fn`是将img和label分别合并成imgs和labels，所以如果你的`__getitem__`方法只是返回 `img, label`,那么你可以使用默认的`collate_fn`方法，但是如果你每次读取的数据有`img, box, label`等等，那么你就需要自定义`collate_fn`来将对应的数据合并成一个batch数据，这样方便后续的训练步骤。
 
 
 ## 网络模型
 
 ### apply 初始化参数
 [pytorch系列10 --- 如何自定义参数初始化方式 ，apply()](https://blog.csdn.net/dss_dssssd/article/details/83990511)
-
 
 
 ### nn.Conv2d
@@ -473,7 +518,7 @@ model = nn.Sequential(OrderedDict([
 
 
 
-## 网络训练
+## train & eval
 
 ### with torch.no_grad()
 
@@ -514,6 +559,9 @@ self.cls_token = nn.Parameter(torch.randn(1, 1, dim))
 
 
 
+### model.train() & model.eval()
+- https://blog.csdn.net/asd123pwj/article/details/123017382
+让模型开启训练/测试模式，训练测试就可以使用同一份代码。
 
 
 
@@ -587,6 +635,11 @@ torch.max()[1].data.numpy().squeeze() 把数据条目中维度为1 的删除掉
 ### nn.init.normal_
 `torch.nn.init.normal(tensor, mean=0, std=1)`
 从给定均值和标准差的正态分布N(mean, std)中生成值，填充输入的张量或变量
+
+
+## 训练问题
+final_loss 会变成nan的情况： loss过大，学习率也很大，可能会梯度爆炸。
+
 
 
 

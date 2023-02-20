@@ -38,11 +38,15 @@
 	- [SML](01%20AI/paper/SML.md)
 	- [Max Logits](01%20AI/paper/Max%20Logits.md)
 - 学习笔记
+	- [长尾分布 Long-tail](01%20AI/长尾分布%20Long-tail.md)
+	- [互信息 Mutual Information](01%20AI/互信息%20Mutual%20Information.md)
+	- [对比学习](01%20AI/对比学习.md)
 	- [目标函数](01%20AI/目标函数.md)
 	- [Softmax](01%20AI/Softmax.md)
 	- [人脸损失](01%20AI/人脸损失.md)
 	- [DBSCAN](01%20AI/DBSCAN.md)
 	- [t-sne](01%20AI/t-sne.md)
+	- [深度学习训练技巧 —— mixup系列](01%20AI/深度学习训练技巧%20——%20mixup系列.md)
 
 ### 计算机专业课
 - 计算机体系结构

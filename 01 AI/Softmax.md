@@ -3,7 +3,7 @@
 [Softmax理解之Smooth程度控制](https://zhuanlan.zhihu.com/p/49939159)
 [Label Smoothing分析](https://zhuanlan.zhihu.com/p/302843504)
 
----
+
 
 ## softmax 损失
 
