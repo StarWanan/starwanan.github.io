@@ -66,6 +66,8 @@ MoCo模型：
 
 ### 代理任务
 
+
+
 ## Method
 ### InfoNCE
 NCE：noisy contrastive estimation。将多分类变成二分类。

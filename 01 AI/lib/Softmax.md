@@ -1,8 +1,56 @@
-[从最优化的角度看待Softmax损失函数](https://zhuanlan.zhihu.com/p/45014864)
-[Softmax理解之二分类与多分类](https://zhuanlan.zhihu.com/p/45368976)
-[Softmax理解之Smooth程度控制](https://zhuanlan.zhihu.com/p/49939159)
-[Label Smoothing分析](https://zhuanlan.zhihu.com/p/302843504)
 
+## 基础知识
+**交叉熵**：度量两个概率分布的差异
+
+**信息量**：一个事件发生的概率越大，携带的信息量越小，发生的概率越小，这个事件携带的信息量越大。
+$$I(x_0) = -log(p(x_0))$$
+
+**信息熵**：信息量的期望。
+$$H(p,q) = -\sum_{i=1}^n p(x_i)log(q(x_i))$$
+事件的概率不均，信息熵较小，若各个事件发生的概率一样，信息熵较大。
+
+**相对熵**，KL散度：
+$$D_{KL}(p||q) = \sum_{i=1}^n p(x_i)log(\frac{p(x_i)}{q(x_i)})$$ 
+目标：计算用 *P* 描述目标问题，比 *Q* 描述目标问题能获得的信息增量。
+如果分布P和分布Q是一样的，那么相对熵是0，如果不一样，相对熵大于0，越大，表示两种分布之间的差距越大。
+在机器学习的项目中，通常P表示真实的分布，即需要训练模型达到的分布，Q是现在的模型预测的分布。
+
+**交叉熵**，将相对熵变形：
+$$
+\begin{aligned}
+D_{KL}(p||q) &= \sum_{i=1}^n p(x_i)log(\frac{p(x_i)}{q(x_i)}) \\
+&= \sum_{i=1}^n p(x_i)log(p(x_i)) - \sum_{i=1}^n p(x_i)log(q(x_i)) \\
+&= -H(p(x)) + [-\sum_{i=1}^n p(x_i)log(q(x_i))]
+\end{aligned}
+$$
+前半部分是信息熵的负值，后半部分则是交叉熵，所以交叉熵的公式是:
+$$H(p,q) = -\sum_{i=1}^n p(x_i)log(q(x_i))$$
+因为P的信息熵是一定的，那么其实是可以省略这部分计算的，交叉熵和相对熵的意义是一样的。只是最后计算出的值，区间不一样。
+
+
+
+### SoftmaxLoss & CELoss
+
+**Softmax**
+Softmax函数，或称归一化指数函数，是逻辑函数的一种推广。它能将一个含任意实数的K维向量 $z$ “压缩”到另一个K维实向量 $\sigma(z)$ 中，使得每一个元素的范围都在 $\sigma(z)$ 之间，并且所有元素的和为1。该函数的形式通常按下面的式子给出：
+$$\sigma(z)_j = \frac{e^{z_j}}{\sum_{k=1}^Ke^{z_k}} for \ j = 1,...K$$
+简单来说 softmax 将一组向量进行压缩，使得到的向量各元素之和为 1，而压缩后的值便可以作为置信率，所以常用于分类问题。另外，在实际运算的时候，为了避免上溢和下溢，在将向量丢进softmax之前往往先对每个元素减去其中最大值，即：
+$$\sigma(z)_j = \frac{e^{z_j-z_{max}}}{\sum_{k=1}^Ke^{z_k-z_{max}}} for \ j = 1,...K$$
+一般分类任务流程：
+```
+[image] --> 深度卷积神经网络 --> fc --> [特征向量embedding] --> softmax --> [C类分数]
+```
+
+
+**Softmax Loss**：
+$$SL = -\sum_{k=1}^K y_k log(\sigma_k)$$
+其中 $y$ 是一个长度为 $K$ 的one-hot向量，即 $y_k \in \{0,1\}$ ，只有ground truth对应的 $y_k = 1$ 。所以也可以简写为：
+$$SL = - y_{gt} log(\sigma_{gt})$$
+
+**交叉熵损失**
+$$CE = \sum_{k=1}^K -P_klog(p_k)$$
+其中 $P$ 是真实分布，在分类任务中， $P$ 实际上等价于上面的 $y$ 。而 $p$ 则是预测分布，在分类任务中 $p$ 实际上等价于上面的 $\sigma$ 。所以：$CE = SL$
+$$Softmax Loss = CrossEntropy(Softmax)$$
 
 
 ## softmax 损失
@@ -131,3 +179,10 @@ $$
 损失函数中有两个参数，一个  **s**  一个 **m**
 s 的设置参照第三篇文章，其实只要超过一定的阈值就可以了，一般来说需要设置一个最小值，然后让 s 按照正常的神经网络参数的更新方式来更新。
 对于 m 的设置目前还需要手动调节
+
+
+> [从最优化的角度看待Softmax损失函数](https://zhuanlan.zhihu.com/p/45014864)
+> [Softmax理解之二分类与多分类](https://zhuanlan.zhihu.com/p/45368976)
+> [Softmax理解之Smooth程度控制](https://zhuanlan.zhihu.com/p/49939159)
+> [Label Smoothing分析](https://zhuanlan.zhihu.com/p/302843504)
+

@@ -69,7 +69,7 @@ $$
 
 ## 论文调研
 ### 重采样
-**Decoupling Representation and Classifier for Long-Tailed Recognition** _ICLR 2020_
+**Decoupling Representation and Classifier for Long-Tailed Recognition** _ICLR 2020_ ^dc2533
 
 论文：[Decoupling Representation and Classifier for Long-Tailed Recognition, ICLR 2020](https://arxiv.org/pdf/1910.09217)
 
@@ -93,7 +93,7 @@ Decoupling将长尾分类模型的学习分为了两步:
 
 Decoupling的核心在于图片特征的分布和类别分布其实不耦合，所以学习backbone的特征提取时不应该用类别的分布去重采样（re-sampling），而应该直接利用原始的数据分布。
 
-#todo BN?  采样fintune 
+
 
 ---
 **Bilateral-Branch Network with Cumulative Learning for Long-Tailed Visual Recognition** _CVPR 2020_
@@ -116,7 +116,7 @@ BBN的核心idea和Decoupling其实是一样的。正因为两个人同时发现
 
 ### 重加权
 
-**Remix: Rebalanced Mixup** _Arxiv Preprint 2020_
+**Remix: Rebalanced Mixup** _Arxiv Preprint 2020_ ^021fe7
 
 链接：[https://arxiv.org/abs/2007.03943](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2007.03943)
 
@@ -126,15 +126,12 @@ Mixup是一个这两年常用的数据增强方法，简单来说就是对两个
 
 ![image.png](https://s1.vika.cn/space/2023/02/17/f1bb3acbabcd4550bab43b5dfa525e2b)
 
-
-
-#todo remix
-
+![image.png](https://s1.vika.cn/space/2023/02/23/74fe179dd5ca4e7d8adde7600666a0e6)
 
 
 
 ---
-**Class-Balanced Loss Based on Effective Number of Samples** _CVPR 2019_
+**Class-Balanced Loss Based on Effective Number of Samples** _CVPR 2019_ ^dd08a6
 
 链接：[https://arxiv.org/abs/1901.05555](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1901.05555)
 
@@ -144,8 +141,7 @@ Mixup是一个这两年常用的数据增强方法，简单来说就是对两个
 
 实现上，该方法在Cross-Entropy Loss中对图片根据所属类给予 1/En 的权重，其中 En=(1−βn)/(1−β) 代表有效样本数， β=(N−1)/N ， n 是类别总样本， N 则可以看作类别的唯一原型数（unique prototypes）。
 
-#todo 尺度问题。学习率-loss。 权重倍数归“一”化 权重设置上下限
-#todo rare类删掉（<5 pic）
+
 
 ---
 **Long-tail learning via logit adjustment** _ICLR 2021_
@@ -228,5 +224,5 @@ logit adjustment loss也属于调整loss方案之一，不同的是它是在logl
 > [通过互信息思想来缓解类别不平衡问题 - 苏剑林](https://kexue.fm/archives/7615#how_to_cite) IID类间长尾分类问题建模, 有关Long-tail learing via logit adjustment
 > [longtail论文笔记 - zhihu](https://zhuanlan.zhihu.com/p/403981340)
 > [Long-Tail Learning via Logit Adjustment - CSDN](https://blog.csdn.net/QKK612501/article/details/126880798) 论文评析 
-> 
-
+> [Remix笔记 - zhihu](https://zhuanlan.zhihu.com/p/344330372) remix，代码在下面一篇参考文章提到的论文中
+> [长尾分布论文（一）：Bag of Tricks for Long-Tailed Visual Recognition with Deep Convolutional Neural Networks - zhihu](https://zhuanlan.zhihu.com/p/416315017) 总结了用于长尾识别的各种trick, 给出详细实验指南。github实现了很多方法

@@ -10,7 +10,7 @@
 	- [AcWing2022寒假每日一题](03%20Algorithm/AcWing2022寒假每日一题.md)
 	- [AcWing2021寒假每日一题(入门)](03%20Algorithm/AcWing2021寒假每日一题(入门).md)
 - 神经网络深度学习 + 计算机视觉
-	- [异常分割](01%20AI/异常分割.md)
+	- [异常分割](01%20AI/lib/异常分割.md)
 		- [PEBAL](01%20AI/paper/PEBAL.md)
 		- [DMLNet](01%20AI/paper/DMLNet.md)
 		- [CosMe](01%20AI/paper/CosMe.md)
@@ -21,7 +21,7 @@
 		- [Max Logits](01%20AI/paper/Max%20Logits.md)
 	- tools
 		- [服务器命令笔记](AI/其他/服务器命令笔记.md)
-		- [python&pytorch使用笔记](01%20AI/python&pytorch使用笔记.md)
+		- [python&pytorch使用笔记](01%20AI/utils/python&pytorch使用笔记.md)
 		- [vim & tmux](04%20计算机/vim%20&%20tmux.md)
 		- [Linux命令](04%20计算机/Linux命令.md)
 	- 经典模型
@@ -30,11 +30,11 @@
 		- [clip](01%20AI/paper/clip.md)
 		- [diffusion](01%20AI/paper/diffusion.md)
 	- 学习笔记
-		- [目标函数](01%20AI/目标函数.md)
-		- [Softmax](01%20AI/Softmax.md)
-		- [人脸损失](01%20AI/人脸损失.md)
-		- [DBSCAN](01%20AI/DBSCAN.md)
-		- [t-sne](01%20AI/t-sne.md)
+		- [目标函数](01%20AI/lib/目标函数.md)
+		- [Softmax](01%20AI/lib/Softmax.md)
+		- [人脸损失](01%20AI/lib/人脸损失.md)
+		- [DBSCAN](01%20AI/lib/DBSCAN.md)
+		- [t-sne](01%20AI/utils/t-sne.md)
 - 课程笔记
 	- 计算机体系结构
 		- [体系结构考点](04%20计算机/计算机体系结构/体系结构考点.md)
