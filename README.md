@@ -16,8 +16,8 @@
 ## 学习笔记
 ### 智能优化算法
 - P-Center and Unicost Set Covering 中心选址与单一成本集合覆盖
-	- [P-Center中心选址问题](02%20Smart/P-Center中心选址问题.md)
-	- [Vertex Weighting-Based Tabu Search for p-Center Problem](02%20Smart/Vertex%20Weighting-Based%20Tabu%20Search%20for%20p-Center%20Problem.md)
+	- [P-Center中心选址问题](02%20Smart/notes/P-Center中心选址问题.md)
+	- [Vertex Weighting-Based Tabu Search for p-Center Problem](02%20Smart/paper/Vertex%20Weighting-Based%20Tabu%20Search%20for%20p-Center%20Problem.md)
 
 ### ACM竞赛
 - [算法模板](03%20Algorithm/算法模板.md)
@@ -90,7 +90,7 @@
 - [vim & tmux](04%20计算机/vim%20&%20tmux.md)
 - [Linux命令](04%20计算机/Linux命令.md)
 - [git&Github](04%20计算机/git&Github.md)
-- [关于C++](02%20Smart/关于C++.md)
+- [关于C++](02%20Smart/notes/关于C++.md)
 
 
 ### 思想政治课
