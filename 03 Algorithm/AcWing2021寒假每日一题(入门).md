@@ -1,1 +1,0 @@
-[AcWing 420. 火星人](03%20Algorithm/Problems/AcWing%20420.%20火星人.md)
