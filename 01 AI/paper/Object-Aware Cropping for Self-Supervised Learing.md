@@ -2,7 +2,7 @@
 - 原文: https://arxiv.org/abs/2112.00319
 - Code: https://github.com/shlokk/object-cropping-ssl
 - pdf: [[Object-Aware Cropping for Self-Supervised Learing.pdf]]
-- 展示: [[Object-Aware Cropping]]
+- 展示: [[01 AI/paper/Object-Aware Cropping]]
 
 
 

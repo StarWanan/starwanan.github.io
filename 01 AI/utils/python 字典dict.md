@@ -1,5 +1,20 @@
-欢迎访问 MyBlog: https://starwanan.github.io/#/ 
+#### 移除 key-value 对
+```python
+dic = {
+	'a': 1,
+	'b': 2,
+	'c': 3
+}
 
+# del
+del dic['a']
+
+# pop()
+dic.pop('a')
+
+# items()
+new_dic = {key:val for key, val in dic.items() if key != 'a'}
+```
 
 
 

@@ -3,8 +3,8 @@
 
 
 和之前文章的联系
-- [[Transformer]]: 完全基于 Attention 的 Encoder 和 Decoder。
-- [[BERT]]: 使用 Transformer Encoder，完形填空自监督训练机制
+- [[01 AI/paper/Transformer]]: 完全基于 Attention 的 Encoder 和 Decoder。
+- [[01 AI/paper/BERT]]: 使用 Transformer Encoder，完形填空自监督训练机制
 - [[vit]]: Transformer 用到CV上
 - MAE: Bert 的CV版本。
 

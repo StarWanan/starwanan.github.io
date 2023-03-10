@@ -1,3 +1,5 @@
+#算法/Trie #算法/贪心 
+
 https://www.acwing.com/activity/content/problem/content/884/
 
 ```cpp

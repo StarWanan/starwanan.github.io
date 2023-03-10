@@ -3,7 +3,7 @@
 
 ## 原理
 
-[[Transformer]]
+[[01 AI/paper/Transformer]]
 
 
 

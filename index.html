@@ -19,6 +19,25 @@
 <body>
 	<!-- 定义加载时候的动作 -->
 	<div id="app">✨加载中✨</div>
+	<script src="//unpkg.com/docsify-link-to"></script>
+	<script>
+		window.$docsify = {
+		name: 'My Obsidian Notes',
+		loadSidebar: true,
+		subMaxLevel: 2,
+		auto2top: true,
+		plugins: [
+			// 配置 docsify-link-to 插件
+			function (hook, vm) {
+			hook.afterEach(function (html, next) {
+				next(html.replace(/\[\[(.*?)\]\]/gim, function (match, text) {
+				return `<a href="#/${encodeURIComponent(text.trim())}">${text.trim()}</a>`
+				}))
+			})
+			}
+		]
+		}
+	</script>
 	<script>
 		window.$docsify = {
 			name: 'StarWanan-blog',			// 项目名称
