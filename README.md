@@ -7,14 +7,14 @@
 
 此处是笔记也是归档，记录所学也方便查看。会不断增加新的学习笔记，也会不定时补充整理之前学过的内容。
 如果有想让我补充可以联系我，我有条件有时间就会填坑。
-也非常欢迎所有人对本仓库contribution～不熟悉的同学可以参考下面的CONTRIBUTION章节。
+也非常欢迎所有人对本仓库contribution～不熟悉的同学可以参考下面的**CONTRIBUTION章节**。
 
 欢迎评论、交流、提建议～也可以顺手再右上角去我的github点一个 Star🌟，也可交换[友链](https://starwanan.github.io/)
 
 仓库同步在[Gitee](https://gitee.com/zyxstar/starwanan.github.io)更新, 由于Gitee审核问题，没有部署Gitee Page。
 
-## 导航
-[Knowledge Library](Knowledge%20Library.md)
+## 笔记导航
+[Knowledge Library](MyNotes/Knowledge%20Library.md)
 
 
 ## 贡献CONTRIBUTION

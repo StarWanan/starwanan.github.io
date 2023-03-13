@@ -13,6 +13,12 @@
 
 <br>
 
+DeepLearning
+
+ACMer
+
+AI
+
 > ✨ 一些学习笔记，面试经历以及杂七杂八的零碎时光
 
 [Github](https://github.com/StarWanan/starwanan.github.io)
