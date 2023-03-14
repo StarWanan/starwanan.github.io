@@ -1,3 +1,5 @@
+#python #DL/pytorch 
+
 ## PyTorch
 - 日志
 	- [[pytorch logger]]

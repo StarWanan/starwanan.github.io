@@ -1,4 +1,7 @@
-
+---
+alias: 加权禁忌搜索解决P-Center问题
+tag: Smart 
+---
 # P-Center and Unicost Set Covering
 # 中心选址与单一成本集合覆盖
 Github项目地址：https://github.com/StarWanan/P-Center
