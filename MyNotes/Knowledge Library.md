@@ -20,7 +20,7 @@
 ### 神经网络与深度学习&计算机视觉
 - [chatGPT & NewBing](MyNotes/01%20DL/notes/chatGPT%20&%20NewBing.md) 提示策略
 - paper
-	- 
+	- [对比学习论文综述](MyNotes/01%20DL/对比学习/对比学习论文综述.md)
 	- 自监督
 		- [Supervised Contrastive Learning](MyNotes/01%20DL/对比学习/Supervised%20Contrastive%20Learning.md)
 		- [MAE：Masked Autoencoders Are Scalable Vision Learners](MyNotes/01%20DL/自监督学习/MAE：Masked%20Autoencoders%20Are%20Scalable%20Vision%20Learners.md)
