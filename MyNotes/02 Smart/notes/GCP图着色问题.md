@@ -1,50 +1,51 @@
+---
+alias: GCP
+tag: Smart 
+---
+## 局部搜索
+### 邻域评估
+
+邻域动作：`<u, i, j>`代表节点 $u$ 从颜色 $i$ 变为颜色 $j$
+
 邻域评估：找到最好的执行动作
 
+`M[u][i]`: 节点 $u$ 的所有邻居(相邻点)中，颜色为 $i$ 的个数
 <img src="https://s1.vika.cn/space/2023/03/07/83ea45c932764e8a8d1f82d8031f1c72" alt="image.png" style="zoom:30%;" />
+进行一次邻域动作后，节点 $u$ 从颜色 $i$ 变成了颜色 $j$：
+- 减少的冲突数是相邻点颜色为 $i$ 的
+- 增加的冲突数是相邻点颜色为 $j$ 的
 
-```text
-1. 初始化着色方案S
-2. 初始化禁忌表T
-3. while (not meet stop criteria) do
-4.     选取邻域操作中不在禁忌表中的最好操作O
-5.     执行操作O，得到新解S'
-6.     计算新解S'的适应度F(S')
-7.     如果新解S'不在禁忌表中，或者S'在禁忌表中但是F(S')比禁忌表中对应解的适应度值好，则接受新解S'
-8.     更新禁忌表T
-9. end while
-10. 返回最终的着色方案S
-```
+进行动作后，只有相邻节点的邻接颜色表会受到影响。而且只有颜色 i 和颜色 j 对应的两列会收到影响。
+- 颜色 i 对应的那一列，全部 -1
+- 颜色 j 对应的那一列，全部 +1
+
+![image.png|400](https://s1.vika.cn/space/2023/03/20/879543c8e26c4a9884e0b9aca56ccfc1)
 
 
-```cpp
-// 初始化着色方案S
-Solution S = initial_solution();
+### 禁忌搜索
 
-// 初始化禁忌表T
-TabuList T;
+`<u, i, j>`执行后，t 步之内，u 的颜色不能回到 i
 
-// 循环搜索直到满足停止准则
-while (!meet_stop_criteria()) {
-    // 获取邻域操作中不在禁忌表中的最好操作O
-    Operation O = select_best_operation_not_in_tabu_list(S, T);
+禁忌步长 $t = f(S) + rand(10)$
 
-    // 执行操作O，得到新解S'
-    Solution S_prime = apply_operation(S, O);
+![image.png|500](https://s1.vika.cn/space/2023/03/20/9e64e2feeadd454dad395b2228cf45dd)
 
-    // 计算新解S'的适应度F(S')
-    double fitness = calculate_fitness(S_prime);
+![image.png|500](https://s1.vika.cn/space/2023/03/20/91d007b27894473fa2840e98162d20a0)
+![image.png|500](https://s1.vika.cn/space/2023/03/20/f0d0537338f345b5b6d0116ab7802551)
 
-    // 如果新解S'不在禁忌表中，或者S'在禁忌表中但是F(S')比禁忌表中对应解的适应度值好，则接受新解S'
-    if (!T.contains(S_prime) || fitness > T.get_fitness(S_prime)) {
-        S = S_prime;
-    }
 
-    // 更新禁忌表T
-    T.update(S, O);
-}
+![image.png|500](https://s1.vika.cn/space/2023/03/20/2208584e7ef54735912a20903c1d636a)
 
-// 返回最终的着色方案S
-return S;
-```
-其中，`Solution`表示着色方案的实现，包括节点的颜色、颜色分配等信息。`TabuList`表示禁忌表的实现，包括添加禁忌状态、查询禁忌状态是否存在、获取禁忌状态的禁忌长度和适应度值等方法。`Operation`表示邻域操作的实现，包括变更节点颜色、交换节点颜色等操作。`select_best_operation_not_in_tabu_list(S, T)`表示从邻域操作中选择不在禁忌表中的最好操作。`apply_operation(S, O)`表示对当前解S应用操作O得到新解S'。`calculate_fitness(S)`表示计算解S的适应度值。`meet_stop_criteria()`表示是否满足停止准则。
+
+## 混合进化算法
+
+![500](https://s1.vika.cn/space/2023/04/17/1bacf52915214422937dce8933f22058)
+
+![500](https://s1.vika.cn/space/2023/04/17/2914ba4c890445568b54b1545d96e226)
+
+
+
+
+
+
 

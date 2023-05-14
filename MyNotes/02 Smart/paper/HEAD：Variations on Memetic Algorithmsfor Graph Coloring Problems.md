@@ -1,7 +1,9 @@
 ---
-alias: HEAD方法，混合进化算法解决图着色
-tag: Smart/GraphColor
+alias: HEAD方法，混合进化算法的变体解决图着色
+tag: Smart/GCP
 ---
+
+
 
 图形着色问题记忆算法的变体
 

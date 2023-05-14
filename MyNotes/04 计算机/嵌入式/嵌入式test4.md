@@ -173,105 +173,227 @@
 
 globalmem.c
 
-```c++
-#include <linux/kernel.h>
+```cpp
 #include <linux/module.h>
-#include <linux/miscdevice.h>
-#include <linux/fs.h>
 #include <linux/types.h>
-#include <linux/moduleparam.h>
-#include <linux/slab.h>
-#include <linux/ioctl.h>
+#include <linux/fs.h>
+#include <linux/errno.h>
+#include <linux/mm.h>
+#include <linux/sched.h>
+#include <linux/init.h>
 #include <linux/cdev.h>
-#include <linux/delay.h>
- 
-#include <linux/gpio.h>
-#include <mach/gpio.h>
-#include <plat/gpio-cfg.h>
+#include <asm/io.h>
+#include <linux/slab.h>
+#include <linux/version.h>
 
+#if LINUX_VERSION_CODE > KERNEL_VERSION(3, 3, 0)
+   #include <asm/switch_to.h>
+#else
+   #include <asm/system.h>
+#endif
+#include <asm/uaccess.h>
 
-#define DEVICE_NAME "leds"
+#define GLOBALMEM_SIZE 0x1000   /*全局内存最大 4K 字节*/
+#define MEM_CLEAR 0x1 /*清 0 全局内存*/
+#define GLOBALMEM_MAJOR 150 /*预设的 globalmem 的主设备号*/
 
-static int led_gpios[] = {
- EXYNOS4X12_GPM4(0),
- EXYNOS4X12_GPM4(1),
- EXYNOS4X12_GPM4(2),
- EXYNOS4X12_GPM4(3),
-};
-
-#define LED_NUM  ARRAY_SIZE(led_gpios)
-
-
-static long tiny4412_leds_ioctl(struct file *filp, unsigned int cmd,
-  unsigned long arg)
+static int globalmem_major = GLOBALMEM_MAJOR;
+/*globalmem 设备结构体*/
+struct globalmem_dev
 {
- switch(cmd) {
-  case 0:
-  case 1:
-   if (arg > LED_NUM) {
-    return -EINVAL;
+    struct cdev cdev;/*cdev 结构体*/
+    unsigned char mem[GLOBALMEM_SIZE];/*全局内存*/
+};
+
+struct globalmem_dev *globalmem_devp;/*设备结构体指针*/
+
+int globalmem_open(struct inode *inode, struct file *filp)
+{
+    filp->private_data = globalmem_devp;
+    return 0;
+}
+int globalmem_release(struct inode *inode, struct file *filp)
+{
+    return 0;
+}
+long globalmem_ioctl(struct file *filp. unsigned int cmd, unsigned long arg)
+{
+    struct globalmem_dev *dev = filp->private_data;
+    /*
+    获得设备结构体指针
+    */
+   switch (cmd)
+   {
+   case MEM_CLEAR:
+     memset(dev_mem, 0, GLOBALMEM_SIZE);
+     printk(KERN_INFO "globalmem is set to zero\n");
+    break;
+   
+   default:
+     return - EINVAL;
    }
-
-   gpio_set_value(led_gpios[arg], !cmd);
-   //printk(DEVICE_NAME": %d %d\n", arg, cmd);
-   break;
-
-  default:
-   return -EINVAL;
- }
-
- return 0;
+    return 0;
 }
 
-static struct file_operations tiny4412_led_dev_fops = {
- .owner   = THIS_MODULE,
- .unlocked_ioctl = tiny4412_leds_ioctl,
-};
+static ssize_t globalmem_read(struct file *filp, char __user *buf, size_t
+size, loff_t *ppos)
+{
+    unsigned int p = *ppos;
+    unsigned int count = size;
+    int ret = 0;
+    struct globalmem_dev *dev = filp->private_data;/*活的设备结构体指针*/
 
-static struct miscdevice tiny4412_led_dev = {
- .minor   = MISC_DYNAMIC_MINOR,
- .name   = DEVICE_NAME,
- .fops   = &tiny4412_led_dev_fops,
-};
+    /*分析和获取有效的写长度*/
+    if (p >= GLOBALMEM_SIZE)
+        return count ? - ENXIO: 0;
+    if (count > GLOBALMEM_SIZE - p)
+        count = GLOBALMEM_SIZE - p;
 
-static int __init tiny4412_led_dev_init(void) {
- int ret;
- int i;
+    /*内核空间->用户空间*/
+    if (copy_to_user(buf, (void*)(dev->mem + P), count))
+    {
+        ret =  - EFAULT;
+    }
+    else
+    {
+        *ppos += count;
+        ret = count;
+        printk(KERN_INFO "read %d bytes(s) from %d\n", count, p);
+    }
+    return ret;
+}
 
- for (i = 0; i < LED_NUM; i++) {
-  ret = gpio_request(led_gpios[i], "LED");
-  if (ret) {
-   printk("%s: request GPIO %d for LED failed, ret = %d\n", DEVICE_NAME,
-     led_gpios[i], ret);
+static ssize_t globalmem_write(struct file *filp, char __user *buf, size_t
+size, loff_t *ppos)
+{
+    unsigned int p = *ppos;
+    unsigned int count = size;
+    int ret = 0;
+    struct globalmem_dev *dev = filp->private_data;/*活的设备结构体指针*/
+
+    /*分析和获取有效的写长度*/
+    if (p >= GLOBALMEM_SIZE)
+        return count ? - ENXIO: 0;
+    if (count > GLOBALMEM_SIZE - p)
+        count = GLOBALMEM_SIZE - p;
+
+    /*用户空间->内核空间*/
+    if (copy_from_user(dev->mem + p,  buf, count))
+    {
+        ret =  - EFAULT;
+    }
+    else
+    {
+        *ppos += count;
+        ret = count;
+        printk(KERN_INFO "written %d bytes(s) from %d\n", count, p);
+    }
+    return ret;
+}
+
+static loff_t globalmem_llseek(struct file *filp, loff_t offset, int orig)
+{
+   loff_t ret = 0;
+   switch (orig)
+   {
+   case 0:   /* 相对文件开始位置移动 */
+     if (offset < 0)
+     {
+        ret = - EINVAL;
+        break;
+     }
+     if ((unsigned int)offset > GLOBALMEM_SIZE)
+     {
+        ret = - EINVAL;
+        break;
+     }
+     filp->f_pos = (unsigned int)offset;
+     ret = filp->f_pos;
+    break;
+    case 1:   /* 相对文件当前位置偏移 */
+     if ((filp->f_pos + offset) > GLOBALMEM_SIZE)
+     {
+        ret = - EINVAL;
+        break;
+     }
+     if ((filp->f_pos + offset) < 0)
+     {
+        ret = - EINVAL;
+        break;
+     }
+     filp->f_pos += offset;
+     ret = filp->f_pos;
+    break;
+   
+   default:
+   ret = - EINVAL;
+    break;
+   }
    return ret;
-  }
-
-  s3c_gpio_cfgpin(led_gpios[i], S3C_GPIO_OUTPUT);
-  gpio_set_value(led_gpios[i], 1);
- }
-
- ret = misc_register(&tiny4412_led_dev);
-
- printk(DEVICE_NAME"\tinitialized\n");
-
- return ret;
 }
 
-static void __exit tiny4412_led_dev_exit(void) {
- int i;
-
- for (i = 0; i < LED_NUM; i++) {
-  gpio_free(led_gpios[i]);
- }
-
- misc_deregister(&tiny4412_led_dev);
+static const struct file_operations globalmem_fops =
+{
+    .owner = THIS_MODULE,
+    .llseek = globalmem_llseek,
+    .read = globalmem_read,
+    .write = globalmem_write,
+    .unlocked_ioctl = globalmem_ioctl,
+    .open = globalmem_open,
+    .release = globalmem_release,
+};
+static void globalmem_setup_cdev(struct globalmem_dev *dev, int index)
+{
+    int err, devno = MKDEV(globalmem_major, index);
+    
+    cdev_init(&dev->cdev, &globalmem_fops);
+    dev->cdev.owner = THIS_MODULE;
+    // dev->cdev.ops = ______;
+    err = cdev_add(&dev->cdev, devno, 1);
+    if (err)
+       printk(KERN_NOTICE "Error %d adding LED%d", err, index);
 }
+int globalmem_init(void)
+{
+    int result;
+    dev_t devno = MKDEV(globalmem_major, 0);
 
-module_init(tiny4412_led_dev_init);
-module_exit(tiny4412_led_dev_exit);
+    /*申请设备号*/
+    if (globalmem_major)
+        result = register_chrdev_region(devno, 1, "globalmem");
+    else   /*动态申请设备号*/
+    {
+        result = alloc_chrdev_region(&devno, 0, 1, "globalmem");
+        globalmem_major = MAJOR(devno);
+    }
+    if (result < 0)
+       return result;
+    
+    /*动态申请设备结构体的内存*/
+    globalmem_devp = kzalloc(sizeof(struct globalmem_dev), GFP_KERNEL);
+    if (!globalmem_devp) /*申请失败*/
+    {
+        result = - ENOMEM;
+        goto fail_malloc;
+    }
+    memset(globalmem_devp, 0, sizeof(struct globalmem_dev));
+    globalmem_setup_cdev(globalmem_devp, 0);
+    return 0;
+fail_malloc: unregister_chrdev_region(devno, 1);
+    return result;
+}
+void globalmem_exit(void)
+{
+    cdev_del(&globalmem_devp->cdev); /*注销 cdev*/
+    kfree(globalmem_devp);              /*释放设备结构体内存*/          
+    //unregister_chedev_region(MKDEV(globalmem_major, 0), 1);/*释放设备号*/
+}
+MODULE_AUTHOR("Song Baohua");
+MODULE_LICENSE("Dual BSD/GPL");
+module_param(globalmem_major, int, S_IRUGO);
+module_init(globalmem_init);
+module_exit(globalmem_exit);
 
-MODULE_LICENSE("GPL");
-MODULE_AUTHOR("FriendlyARM Inc.");
 ```
 
 

@@ -1,6 +1,6 @@
 欢迎访问 MyBlog: https://starwanan.github.io/#/ 
 
-#DL/Long-tDLl
+#DL/Long-Tail
 
 ## 问题简介
 
@@ -30,7 +30,7 @@
 
 **采样策略:**
 
-引用[Decoupling Representation and Classifier for Long-TDLled Recognition(ICLR 2020)](https://arxiv.org/pdf/1910.09217v2)的通用公式来表示:
+引用[Decoupling Representation and Classifier for Long-Tailed Recognition(ICLR 2020)](https://arxiv.org/pdf/1910.09217v2)的通用公式来表示:
 $$
 𝑝_𝑗=\frac{𝑛^𝑞_𝑗}{\sum^𝐶_{𝑖=1}𝑛^𝑞_𝑗}
 $$
@@ -69,9 +69,9 @@ $$
 
 ## 论文调研
 ### 重采样
-**Decoupling Representation and Classifier for Long-TDLled Recognition** _ICLR 2020_ ^dc2533
+**Decoupling Representation and Classifier for Long-Tailed Recognition** _ICLR 2020_ 
 
-论文：[Decoupling Representation and Classifier for Long-TDLled Recognition, ICLR 2020](https://arxiv.org/pdf/1910.09217)
+论文：[Decoupling Representation and Classifier for Long-Tailed Recognition, ICLR 2020](https://arxiv.org/pdf/1910.09217)
 
 代码：[https://github.com/facebookresearch/classifier-balancing](https://github.com/facebookresearch/classifier-balancing)
 
@@ -96,9 +96,9 @@ Decoupling的核心在于图片特征的分布和类别分布其实不耦合，�
 
 
 ---
-**Bilateral-Branch Network with Cumulative Learning for Long-TDLled Visual Recognition** _CVPR 2020_
+**Bilateral-Branch Network with Cumulative Learning for Long-Tailed Visual Recognition** _CVPR 2020_
 
-论文：[Bilateral-Branch Network with Cumulative Learning for Long-TDLled Visual Recognition，CVPR 2020](https://arxiv.org/pdf/1912.02413.pdf)
+论文：[Bilateral-Branch Network with Cumulative Learning for Long-Tailed Visual Recognition，CVPR 2020](https://arxiv.org/pdf/1912.02413.pdf)
 代码：[https://github.com/Megvii-Nanjing/BBN](https://github.com/Megvii-Nanjing/BBN)
 
 BBN的核心idea和Decoupling其实是一样的。正因为两个人同时发现了同样的规律，更证明了这个规律的通用性和可靠性。关于上文的规律，BBN做了更详细的分析：
@@ -144,15 +144,13 @@ Mixup是一个这两年常用的数据增强方法，简单来说就是对两个
 
 
 ---
-**Long-tDLl learning via logit adjustment** _ICLR 2021_
-- [[Long-tDLl learning via logit adjustment.pdf]] 
-- [[Long-tDLl learning via logit adjustment-ppt.pdf]]
+**Long-tail learning via logit adjustment** _ICLR 2021_
 
 **(1) 建模思路**
 
 断定一个分类问题是否不均衡：一般的思路是从整个训练集里边统计出各个类别的频率$p(y)$，然后发现$p(y)$集中在某几个类别中。所以，解决类别不平衡问题的重点，就是如何把这个先验知识$p(y)$融入模型之中。
 
-相比拟合条件概率，如果模型能直接拟合[[MyNotes/01 DL/notes/互信息 Mutual Information]]，那么将会学习到更本质的知识，因为互信息才是揭示核心关联的指标。但是拟合互信息没那么容易训练，容易训练的是条件概率，直接用交叉熵 $−log⁡\ p_θ(y|x)$ 进行训练就行了。所以，一个比较理想的想法就是：==如何使得模型依然使用交叉熵为loss，但本质上是在拟合互信息？==
+相比拟合条件概率，如果模型能直接拟合[[互信息 Mutual Information]]，那么将会学习到更本质的知识，因为互信息才是揭示核心关联的指标。但是拟合互信息没那么容易训练，容易训练的是条件概率，直接用交叉熵 $−log⁡\ p_θ(y|x)$ 进行训练就行了。所以，一个比较理想的想法就是：==如何使得模型依然使用交叉熵为loss，但本质上是在拟合互信息？==
 
 原本条件概率模型：
 $$
@@ -217,12 +215,12 @@ logit adjustment loss也属于调整loss方案之一，不同的是它是在logl
 ---
 
 参考文章：
-> [Long tDLled 长尾分布论文汇总 - CSDN](https://blog.csdn.net/adf1179/article/detDLls/115691708) 本文汇总了2019-2021年在计算机视觉和文本分类方面的论文
-> [Long-TDLled Classification - cnblog](https://www.cnblogs.com/fusheng-rextimmy/p/15389065.html) 本文介绍了2019-2020年论文、总结了技术路线，并提出了新的方法
+> [Long Tailed 长尾分布论文汇总 - CSDN](https://blog.csdn.net/adf1179/article/deTails/115691708) 本文汇总了2019-2021年在计算机视觉和文本分类方面的论文
+> [Long-Tailed Classification - cnblog](https://www.cnblogs.com/fusheng-rextimmy/p/15389065.html) 本文介绍了2019-2020年论文、总结了技术路线，并提出了新的方法
 > [计算机视觉中的长尾分布问题还值得做吗 - zhihu](https://zhuanlan.zhihu.com/p/548735583) 本文介绍22年的研究现状
-> [ICLR2020 | Decoupling representation and classifier for long-tDLled recognition](https://zhuanlan.zhihu.com/p/452668798) 论文分析
-> [通过互信息思想来缓解类别不平衡问题 - 苏剑林](https://kexue.fm/archives/7615#how_to_cite) IID类间长尾分类问题建模, 有关Long-tDLl learing via logit adjustment
-> [longtDLl论文笔记 - zhihu](https://zhuanlan.zhihu.com/p/403981340)
-> [Long-TDLl Learning via Logit Adjustment - CSDN](https://blog.csdn.net/QKK612501/article/detDLls/126880798) 论文评析 
+> [ICLR2020 | Decoupling representation and classifier for long-Tailed recognition](https://zhuanlan.zhihu.com/p/452668798) 论文分析
+> [通过互信息思想来缓解类别不平衡问题 - 苏剑林](https://kexue.fm/archives/7615#how_to_cite) IID类间长尾分类问题建模, 有关Long-Tail learing via logit adjustment
+> [longTail论文笔记 - zhihu](https://zhuanlan.zhihu.com/p/403981340)
+> [Long-Tail Learning via Logit Adjustment - CSDN](https://blog.csdn.net/QKK612501/article/deTails/126880798) 论文评析 
 > [Remix笔记 - zhihu](https://zhuanlan.zhihu.com/p/344330372) remix，代码在下面一篇参考文章提到的论文中
-> [长尾分布论文（一）：Bag of Tricks for Long-TDLled Visual Recognition with Deep Convolutional Neural Networks - zhihu](https://zhuanlan.zhihu.com/p/416315017) 总结了用于长尾识别的各种trick, 给出详细实验指南。github实现了很多方法
+> [长尾分布论文（一）：Bag of Tricks for Long-Tailed Visual Recognition with Deep Convolutional Neural Networks - zhihu](https://zhuanlan.zhihu.com/p/416315017) 总结了用于长尾识别的各种trick, 给出详细实验指南。github实现了很多方法

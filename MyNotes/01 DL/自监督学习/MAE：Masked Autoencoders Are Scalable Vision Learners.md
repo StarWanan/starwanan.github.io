@@ -3,8 +3,8 @@
 
 
 和之前文章的联系
-- [[MyNotes/01 DL/Transformer家族/Transformer]]: 完全基于 Attention 的 Encoder 和 Decoder。
-- [[MyNotes/01 DL/Transformer家族/BERT]]: 使用 Transformer Encoder，完形填空自监督训练机制
+- [[Transformer]]: 完全基于 Attention 的 Encoder 和 Decoder。
+- [[BERT]]: 使用 Transformer Encoder，完形填空自监督训练机制
 - [[vit]]: Transformer 用到CV上
 - MAE: Bert 的CV版本。
 

@@ -319,7 +319,7 @@ Identifying unexpected objects on roads in semantic seg- mentation (e.g., identi
 
   缺点：需要大量的劳动强度或冗长的推理时间
 
-- 预训练网络的预测分数（例如[[MyNotes/01 DL/异常分割/Max Logits]]，最终 softmax 层之前的类之间的最大值）
+- 预训练网络的预测分数（例如[[Max Logits]]，最终 softmax 层之前的类之间的最大值）
 
   缺点：每个预测类别的最大 logits 分布彼此之间存在显着差异，这降低了在城市场景分割中识别非预期对象的性能
 
