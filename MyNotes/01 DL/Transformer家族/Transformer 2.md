@@ -6,7 +6,7 @@
 <<<<<<< HEAD
 [[MyNotes/01 DL/Transformer家族/BERT]]
 =======
-[[BERT]]
+[[MyNotes/01 DL/Transformer家族/BERT]]
 >>>>>>> d1a9232 (update something)
 [使用pytorch 和 bert 实现一个简单的文本分类任务](https://blog.csdn.net/gjh1716718326/article/detDLls/115335467) 
 

@@ -4,7 +4,7 @@
 <<<<<<< HEAD
 - 展示: [[MyNotes/01 DL/自监督学习/Object-Aware Cropping总结]]
 =======
-- 展示: [[Object-Aware Cropping总结]]
+- 展示: [[MyNotes/01 DL/自监督学习/Object-Aware Cropping总结]]
 >>>>>>> d1a9232 (update something)
 
 

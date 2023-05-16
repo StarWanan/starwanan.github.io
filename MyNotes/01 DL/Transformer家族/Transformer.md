@@ -3,7 +3,7 @@
 
 ---
 [BERT完全指南-从原理到实践](https://blog.csdn.net/u012526436/article/detDLls/86296051?spm=1001.2014.3001.5502)
-[[BERT]]
+[[MyNotes/01 DL/Transformer家族/BERT]]
 [使用pytorch 和 bert 实现一个简单的文本分类任务](https://blog.csdn.net/gjh1716718326/article/detDLls/115335467) 
 
 [Pytorch数据预处理：transforms的使用方法](https://zhuanlan.zhihu.com/p/130985895#:~:text=transfor,%E9%83%BD%E6%9C%89%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8A%9F%E8%83%BD%E3%80%82)

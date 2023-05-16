@@ -3,7 +3,7 @@
 
 ## 原理
 
-[[Transformer]]
+[[MyNotes/01 DL/Transformer家族/Transformer]]
 
 
 

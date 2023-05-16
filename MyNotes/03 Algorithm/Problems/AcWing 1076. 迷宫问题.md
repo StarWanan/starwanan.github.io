@@ -1,6 +1,6 @@
 #算法/bfs
 
-下一难度：[[AcWing 188. 武士风度的牛]]
+下一难度：[[MyNotes/03 Algorithm/Problems/AcWing 188. 武士风度的牛]]
 	变式，日字形跳法
 
 

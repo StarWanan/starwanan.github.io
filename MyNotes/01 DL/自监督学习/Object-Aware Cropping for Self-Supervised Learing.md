@@ -1,7 +1,7 @@
 - tag: #DL/Self-supersived 
 - 原文: https://arxiv.org/abs/2112.00319
 - Code: https://github.com/shlokk/object-cropping-ssl
-- 展示: [[Object-Aware Cropping总结]]
+- 展示: [[MyNotes/01 DL/自监督学习/Object-Aware Cropping总结]]
 
 
 

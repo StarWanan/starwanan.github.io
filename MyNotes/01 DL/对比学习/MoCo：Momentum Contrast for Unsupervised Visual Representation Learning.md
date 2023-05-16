@@ -1,7 +1,7 @@
 # 用于无监督视觉表征学习的动量对比学习
 #DL/Transformer #DL/Contrastive 
 
-MoCo是基于[[对比学习]]和[[Transformer]]的改进工作。
+MoCo是基于[[MyNotes/01 DL/对比学习/对比学习]]和[[MyNotes/01 DL/Transformer家族/Transformer]]的改进工作。
 
 ## Abstract
 动量： $y_t = m \cdot y_{t-1} + (1-m) \cdot x_t$  使得当前输出不仅仅依靠输入。
@@ -27,7 +27,7 @@ MoCo是基于[[对比学习]]和[[Transformer]]的改进工作。
 
 
 ### 动态字典
-MoCo这篇文章，将之前工作的[[对比学习]]方法归纳成了一个[[动态字典]]问题。将query和key中的某一个距离最小化即可
+MoCo这篇文章，将之前工作的[[MyNotes/01 DL/对比学习/对比学习]]方法归纳成了一个[[动态字典]]问题。将query和key中的某一个距离最小化即可
 ![[动态字典.canvas]]
 
 在这个角度来看，想让结果更好，字典应该有两个特征：
@@ -45,7 +45,7 @@ MoCo模型：
 
 
 ### 代理任务 Instance discrimination
-[[代理任务]]是没什么人关心的任务，是为了学习更好的特征。
+[[MyNotes/01 DL/对比学习/代理任务]]是没什么人关心的任务，是为了学习更好的特征。
 
 如果query-key是同一个图片的不同视角（比如随机裁剪），则认为能配对
 
